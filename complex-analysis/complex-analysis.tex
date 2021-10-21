@@ -56,7 +56,8 @@
 	\begin{gather*}
 		(a, b) + (c, d) = (a + c, b + d) \\
 		(a, b) - (c, d) = (a - c, b - d) \\
-		(a, b) * (c, d) = (ac - bd, ad + bc)
+		(a, b) * (c, d) = (ac - bd, ad + bc) \\
+		\frac{(a, b)}{(c, d)} = \frac{(a, b)(c, -d)}{(c, d)(c, -d)}
 	\end{gather*}
 	
 	Conjugation is distributive over addition, subtraction, multiplication and division:
@@ -68,6 +69,10 @@
 		\overline{\left(\frac{z}{w}\right)} = \frac{\overline{z}}{\overline{w}}
 	\end{gather*}
 	
+	It is clear that the complex conjugation $z \to \overline z$ is an automorphism of $\mathbb{C}$ (an isomorphic endofunctor).
+	
+	Trivially, $z * \overline z \in \mathbb{R}$.
+	
 	Rules regarding the polar representation can be trivially obtained via substitution of definitions:
 	
 	\begin{gather*}
@@ -75,6 +80,115 @@
 		\arg(z * w) = \arg z + \arg w
 	\end{gather*}
 	
+	Modulus can be viewed as the distance of the represented point to the origin, and thereby the rule:
 	
+	\begin{gather*}
+		\lvert z * w \rvert \leq \lvert z \rvert * \lvert w \rvert
+	\end{gather*}
+	
+	\subsection{Simple Applications}
+	
+	The following section explores rudimentary applications we can derive from the previously covered rules of complex numbers.
+	
+	\subsubsection{Magma of Sums of Squares Under Multiplication}
+	
+	Consider the number theory problem:
+	\begin{center}
+		Which integers are sums of two squares?
+	\end{center}
+	
+	With complex numbers, we realize that the integers that are the sum of two squares form a magma under multiplication.
+	\\\\
+	\textbf{Proof.} There exists an rearrangement of terms in a product of sums of 2 squares such that: $$(a^2 + b^2)(c^2 + d^2) \to (ac - bd)^2 (ad + bc)^2$$
+	The above transformation is derived from the complex number rules related to complex modulus:
+	
+	\begin{gather*}
+		a^2 + b^2 = \lvert a + ib \rvert ^2 \\
+		c^2 + d^2 = \lvert c + id \rvert ^2
+	\end{gather*}
+	Therefore $(a^2 + b^2)(c^2 + d^2)$ can be written as:
+	
+	\begin{align*}
+		  & (a^2 + b^2)(c^2 + d^2) \\
+		= & \lvert (a + ib)(c + id) \rvert ^2 \\
+		= & \lvert ac - bd + i(ad + bc) \rvert ^2 \\
+		= & (ac - bd)^2 + (ad + bc)^2
+	\end{align*}
+	 
+	Extending from the proof above, consider two given sum of squares:
+	
+	\begin{gather*}
+		5 = 1^2 + 2^2 \\
+		13 = 2^2 + 3^2
+	\end{gather*}
+	
+	By multiplication we obtain: $$5 * 13 = 65$$
+	
+	Note that $65$ can also be represented as different sums of two squares: $1^2 + 8^2 = 4^2 + 7^2 = 65$. By writing the constituent of $5$ and $13$ as complex modulus, we obtain:
+	
+	\begin{gather*}
+		\lvert 1 + 2i \rvert ^2 = 5 \\
+		\lvert 2 + 3i \rvert ^ 2 = 13
+	\end{gather*}
+	
+	By multiplying $1 + 2i$ and $2 + 3i$ and conjugating one of them, we obtain:
+	
+	\begin{gather*}
+		(1 + 2i)(2 + 3i) = -4 + 7i \\
+		(1 + 2i)(2 - 3i) = 8 + i
+	\end{gather*}
+	corresponding to the other two solution $1^2 + 8^2 = 65$ and $4^2 + 7^2 = 65$.
+	
+	\subsubsection{Pythagorean Triples}
+	
+	Another application of complex arithmetic relates to the Pythagorean theorem, easily generating a set of Pythagorean triples from complex numbers. Consider the Pythagorean theorem of edge $a, b, c$ where $c \leq a + b$ in a right triangle: $$a^2 + b^2 = c^2$$
+	
+	Suppose $a + bi = (x + iy) ^2$ where $x, y \in \mathbb{N}$, then:
+	\begin{gather*}
+		\lvert a + bi \rvert = \lvert (x + yi)^2 \rvert \\
+		a^2 + b^2 = \lvert (x + yi) \rvert ^2 = (x^2 + y^2)^2
+	\end{gather*}
+	
+	We can then substitute $x$ and $y$ with any natural number and apply complex modulus properties in:
+	\begin{gather*}
+		\alpha = (x + yi)^2 \\
+		\beta = \lvert x + yi \rvert^2
+	\end{gather*}
+	
+	$a$, $b$ and $c$ can then be obtained by:
+	\begin{gather*}
+		a = \Re(\alpha) \\
+		b = \Im(\alpha) \\
+		c = \beta
+	\end{gather*}
+	
+	\subsubsection{Quaternions}
+	
+	A feasible expansion of the complex number system into $\mathbb{R}^3$ has yet to be proposed. However, there exists a $\mathbb{R}^4$ expansion, the quaternions, of the complex plane.
+	
+	In the quaternion system, a complex number $a + bi$ is expanded into $a + bi + cj + dk$, where the multiplication of $i$, $j$ and $k$ is not communicative:
+	\begin{gather*}
+		i^2 = j^2 = k^2 = ijk = -1 \\
+		ij = k = -ji \\
+		jk = i = -kj \\
+		ki = j = -ik
+	\end{gather*}
+	
+	Similar to finding the inverse of a complex number $a + bi$ (multiplying nominator and denominator by its conjugate):
+	$$\frac{1}{a + bi} = \frac{a - bi}{a^2 + b^2}$$
+	, there also exists an inverse for a quaternion:
+	$$\overline{a + bi + cj + dk} = a - bi - cj - dk$$
+	
+	The product of a quaternion with its conjugate is:
+	\begin{align*}
+		z\overline{z} = a^2 + b^2 + c^2 + d^2
+	\end{align*}
+	
+	Note that the cross terms (such as $bcij$ and $bcji$) in the above equation vanish due to the non-communitivity ($ij$ = $-ji$).
+	
+	The inverse of a quaternion can thus be found:
+	$$\frac{1}{a + bi + cj + dk} = \frac{a - bi - cj - dk}{a^2 + b^2 + c^2 + d^2}$$
+	
+	All none-zero quaternions have inverses, similar to complex numbers.
 	
 \end{document}
