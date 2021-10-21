@@ -10,6 +10,9 @@
 \begin{document}
 	\maketitle
 	
+	\newcommand{\mo}[1]{\lvert #1 \rvert}
+	\newcommand{\mos}[1]{\lvert #1 \rvert^2}
+	
 	\abstract{Convex analysis is the domain of mathematics that investigates functions of complex numbers. Despite its frequent occurrence in applied science, IB Mathematics seems to decide on not covering anything other than "haha $i^2$ is $-1$", so here's my attempt at creating notes for it after binging an entire semester of complex analysis in one night and getting sick immediately the next day due to sleep deprivation. Balanced IB life.}
 	
 	\section{Fundamentals}
@@ -37,7 +40,7 @@
 	
 	\begin{gather*}
 		\overline{c} = a - bi \\
-		\lvert c \rvert = \sqrt{a^2 + b^2} \\
+		\mo{c} = \sqrt{a^2 + b^2} \\
 		\arg c = \arctan \frac{b}{a}
 	\end{gather*}
 	
@@ -76,14 +79,14 @@
 	Rules regarding the polar representation can be trivially obtained via substitution of definitions:
 	
 	\begin{gather*}
-		\lvert z * w \rvert = \lvert z \rvert * \lvert w \rvert \\
+		\mo{z * w} = \mo{z} * \mo{w} \\
 		\arg(z * w) = \arg z + \arg w
 	\end{gather*}
 	
 	Modulus can be viewed as the distance of the represented point to the origin, and thereby the rule:
 	
 	\begin{gather*}
-		\lvert z * w \rvert \leq \lvert z \rvert * \lvert w \rvert
+		\mo{z * w} \leq \mo{z} * \mo{w}
 	\end{gather*}
 	
 	\subsection{Simple Applications}
@@ -103,15 +106,15 @@
 	The above transformation is derived from the complex number rules related to complex modulus:
 	
 	\begin{gather*}
-		a^2 + b^2 = \lvert a + ib \rvert ^2 \\
-		c^2 + d^2 = \lvert c + id \rvert ^2
+		a^2 + b^2 = \mos{a + ib} \\
+		c^2 + d^2 = \mos{c + id}
 	\end{gather*}
 	Therefore $(a^2 + b^2)(c^2 + d^2)$ can be written as:
 	
 	\begin{align*}
 		  & (a^2 + b^2)(c^2 + d^2) \\
-		= & \lvert (a + ib)(c + id) \rvert ^2 \\
-		= & \lvert ac - bd + i(ad + bc) \rvert ^2 \\
+		= & \mos{(a + ib)(c + id)} \\
+		= & \mos{ac - bd + i(ad + bc)} \\
 		= & (ac - bd)^2 + (ad + bc)^2
 	\end{align*}
 	 
@@ -127,8 +130,8 @@
 	Note that $65$ can also be represented as different sums of two squares: $1^2 + 8^2 = 4^2 + 7^2 = 65$. By writing the constituent of $5$ and $13$ as complex modulus, we obtain:
 	
 	\begin{gather*}
-		\lvert 1 + 2i \rvert ^2 = 5 \\
-		\lvert 2 + 3i \rvert ^ 2 = 13
+		\mos{1 + 2i} = 5 \\
+		\mos{2 + 3i} = 13
 	\end{gather*}
 	
 	By multiplying $1 + 2i$ and $2 + 3i$ and conjugating one of them, we obtain:
@@ -143,16 +146,16 @@
 	
 	Another application of complex arithmetic relates to the Pythagorean theorem, easily generating a set of Pythagorean triples from complex numbers. Consider the Pythagorean theorem of edge $a, b, c$ where $c \leq a + b$ in a right triangle: $$a^2 + b^2 = c^2$$
 	
-	Suppose $a + bi = (x + iy) ^2$ where $x, y \in \mathbb{N}$, then:
+	Suppose $a + bi = (x + yi) ^2$ where $x, y \in \mathbb{N}$, then:
 	\begin{gather*}
-		\lvert a + bi \rvert = \lvert (x + yi)^2 \rvert \\
-		a^2 + b^2 = \lvert (x + yi) \rvert ^2 = (x^2 + y^2)^2
+		\mo{a + bi} = \mo{(x + yi)^2} \\
+		a^2 + b^2 = \mos{(x + yi)^2} = (x^2 + y^2)^2
 	\end{gather*}
 	
 	We can then substitute $x$ and $y$ with any natural number and apply complex modulus properties in:
 	\begin{gather*}
 		\alpha = (x + yi)^2 \\
-		\beta = \lvert x + yi \rvert^2
+		\beta = \mos{x + yi}
 	\end{gather*}
 	
 	$a$, $b$ and $c$ can then be obtained by:
