@@ -33,4 +33,48 @@
 		\end{bmatrix}
 	\end{equation*}
 	
+	From such geometric representation, further vector-like properties can be defined (conjugate, modulus and argument) for $c \in \mathbb{C}$ with real part $a$ and imaginary part $b$:
+	
+	\begin{gather*}
+		\overline{c} = a - bi \\
+		\lvert c \rvert = \sqrt{a^2 + b^2} \\
+		\arg c = \arctan \frac{b}{a}
+	\end{gather*}
+	
+	Note the isomorphism of the modulus-argument pair with the standard $a + bi$ form under the domain $-\pi < \theta \leq \pi$ for argument. In the remaining portion of this note, a complex number may take any of the following form:
+	
+	\begin{enumerate}
+		\item Regular form: $a + bi$ where $a, b \in \mathbb{R}$
+		\item Tuple form (equivalent to $a + bi$): $(a, b)$
+		\item Polar form (modulus $r$ and argument $\theta$): $r(cos \theta + i \sin \theta)$
+	\end{enumerate}
+	
+	\subsection{Complex Arithmetic}
+	
+	Trivially, due to the nature of square roots:
+	
+	\begin{gather*}
+		(a, b) + (c, d) = (a + c, b + d) \\
+		(a, b) - (c, d) = (a - c, b - d) \\
+		(a, b) * (c, d) = (ac - bd, ad + bc)
+	\end{gather*}
+	
+	Conjugation is distributive over addition, subtraction, multiplication and division:
+	
+	\begin{gather*}
+		\overline{z + w} = \overline{z} * \overline{w} \\
+		\overline{z - w} = \overline{z} * \overline{w} \\
+		\overline{z * w} = \overline{z} * \overline{w} \\
+		\overline{\left(\frac{z}{w}\right)} = \frac{\overline{z}}{\overline{w}}
+	\end{gather*}
+	
+	Rules regarding the polar representation can be trivially obtained via substitution of definitions:
+	
+	\begin{gather*}
+		\lvert z * w \rvert = \lvert z \rvert * \lvert w \rvert \\
+		\arg(z * w) = \arg z + \arg w
+	\end{gather*}
+	
+	
+	
 \end{document}
