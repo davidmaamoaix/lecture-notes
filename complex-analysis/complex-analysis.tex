@@ -146,24 +146,21 @@
 	
 	Another application of complex arithmetic relates to the Pythagorean theorem, easily generating a set of Pythagorean triples from complex numbers. Consider the Pythagorean theorem of edge $a, b, c$ where $c \leq a + b$ in a right triangle: $$a^2 + b^2 = c^2$$
 	
-	Suppose $a + bi = (x + yi) ^2$ where $x, y \in \mathbb{N}$, then:
-	\begin{gather*}
-		\mo{a + bi} = \mo{(x + yi)^2} \\
-		a^2 + b^2 = \mos{(x + yi)^2} = (x^2 + y^2)^2
-	\end{gather*}
+	Consider the modulus of an arbitrary complex number with integer real and imaginary parts, i.e. $a + bi$ where $a, b \in \mathbb{Q}$, then its modulus can be expressed as a single square root of an integer. Therefore, the modulus of the square of any $a + bi$ of integer coordinate is an integer:
+	\begin{align*}
+		\mo{a + bi} &= \sqrt{a^2 + b^2} \\
+		(a + bi)^2 &= a^2 - b^2 + (2ab)i  \\
+		\mo{(a + bi)^2} &= \mo{a + bi} * \mo{a + bi} \\
+		& = a^2 + b^2
+	\end{align*}
 	
-	We can then substitute $x$ and $y$ with any natural number and apply complex modulus properties in:
-	\begin{gather*}
-		\alpha = (x + yi)^2 \\
-		\beta = \mos{x + yi}
-	\end{gather*}
+	Therefore, we obtain a generalized formula of the Pythagorean triples over the complex plane for any integer substitution of $a$ and $b$:
+	\begin{align*}
+		a &= a^2 - b^2 \\
+		b &= 2ab \\
+		c &= a^2 + b^2
+	\end{align*}
 	
-	$a$, $b$ and $c$ can then be obtained by:
-	\begin{gather*}
-		a = \Re(\alpha) \\
-		b = \Im(\alpha) \\
-		c = \beta
-	\end{gather*}
 	
 	\subsubsection{Quaternions}
 	
@@ -193,5 +190,7 @@
 	$$\frac{1}{a + bi + cj + dk} = \frac{a - bi - cj - dk}{a^2 + b^2 + c^2 + d^2}$$
 	
 	All none-zero quaternions have inverses, similar to complex numbers.
+	
+	\section{Roots}
 	
 \end{document}
