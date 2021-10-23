@@ -22,32 +22,32 @@
 	\abstract{Convex analysis is the domain of mathematics that investigates functions of complex numbers. Despite its frequent occurrence in applied science, IB Mathematics seems to decide on not covering anything other than "haha $i^2$ is $-1$", so here's my attempt at creating notes for it after binging an entire semester of complex analysis in one night and getting sick immediately the next day due to sleep deprivation. Balanced IB life.}
 	
 	\section{Fundamentals}
-	A complex number $x \in \mathbb{C}$ is a number of the form $$a + bi$$ where $a$ and $b$ are both real numbers.
+	A complex number $z \in \mathbb{C}$ is a number of the form $$a + bi$$ where $a$ and $b$ are both real numbers.
 	
 	\subsection{Definitions}
 	The imaginary number $i$ is defined as $\sqrt{-1}$. Due to its equivalence with $\sqrt{1}$, $i$ obeys all arithmetic laws that apply to root terms. Similarly, it coerces into $-1 \in \RR$ in the case of $i^2$.
 	
-	Due to the encapsulation of $x \in \mathbb{C}$ over real numbers $a$ and $b$, a complex function $f: \mathbb{C} \to \mathbb{C}$ is isomorphic to $g: \RR^2 \to \RR^2$. Trivially, by decomposition we obtain
+	Due to the encapsulation of $z \in \mathbb{C}$ over real numbers $a$ and $b$, a complex function $f: \mathbb{C} \to \mathbb{C}$ is isomorphic to $g: \RR^2 \to \RR^2$. Trivially, by decomposition we obtain
 	\begin{gather*}
 		\Re: \mathbb{C} \to \RR \\
 		\Im: \mathbb{C} \to \RR
 	\end{gather*}
 	corresponding to retrieving real components $a$ and $b$.
 	
-	Deriving from $x \in \mathbb{C}$'s correspondence to a vector $\vec{x} \in \RR$, the representation of a 2-dimensional coordinate can be concluded from $x$:
+	Deriving from $z \in \mathbb{C}$'s correspondence to a vector $\vec{z} \in \RR$, the representation of a 2-dimensional coordinate can be concluded from $x$:
 	
 	\begin{equation*}
 		\begin{bmatrix}
-			\Re(x) \\ \Im(x)
+			\Re(z) \\ \Im(z)
 		\end{bmatrix}
 	\end{equation*}
 	
-	From such geometric representation, further vector-like properties can be defined (conjugate, modulus and argument) for $c \in \mathbb{C}$ with real part $a$ and imaginary part $b$:
+	From such geometric representation, further vector-like properties can be defined (conjugate, modulus and argument) for $z \in \mathbb{C}$ with real part $a$ and imaginary part $b$:
 	
 	\begin{gather*}
-		\overline{c} = a - bi \\
-		\mo{c} = \sqrt{a^2 + b^2} \\
-		\arg c = \arctan \frac{b}{a}
+		\overline{z} = a - bi \\
+		\mo{z} = \sqrt{a^2 + b^2} \\
+		\arg z = \arctan \frac{b}{a}
 	\end{gather*}
 	
 	Note the isomorphism of the modulus-argument pair with the standard $a + bi$ form under the domain $-\pi < \theta \leq \pi$ for argument. In the remaining portion of this note, a complex number may take any of the following form:
@@ -205,6 +205,13 @@
 		\sqrt{-5} &= \sqrt{5}i
 	\end{align*}
 	
+	Due to the complications of working with the cartesian form of complex numbers in multiplication and division, the majority of calculations below feature $z \in \mathbb{C}$ in the exponential form, namely $re^{i\theta}$. This trivially corresponds to the polar form $r(\cos \theta + i\sin \theta)$ as dicussed previously.
+	
+	The conversion from cartesian to polar can be roughly described as (neglecting the domain restrictions):
+	\begin{align*}
+		r &= \mo{z}
+	\end{align*}
+	
 	\subsection{Geometric Interpretation of Multiplication}
 	
 	To better represent multiplication over the complex plane, we shall express multiplication in complex number's polar 
@@ -247,4 +254,72 @@
 	
 	\textbf{Warning:} When multiplying complex numbers on a computer, care must be taken to map the polar angles to $(-\pi, \pi]$ when converting from cartesian form to polar form.
 	
+	\subsection{Square Root of $z \in \mathbb{C}$}
+	
+	With the aforementioned geometric representation of complex multiplication, $\sqrt{z}$ for $z \in \mathbb{C}$ can be trivially obtained as:
+	\begin{gather*}
+		\sqrt{z} = \sqrt{re^{i\theta}} = \sqrt{r}e^{i\frac{\theta}{2}}
+	\end{gather*}
+	
+	There exists two solutions for the square root of a complex number. Therefore, in order to preserve continuity, we realize that $\sqrt{e^{i\pi}}$ and $\sqrt{e^{-i\pi}}$ should be equal, yet the continuity of the square root function insists that:
+	\begin{align*}
+		\sqrt{e^{i\pi}} &= i \\
+		\sqrt{e^{-i\pi}} &= -i
+	\end{align*}
+	
+	There exists no solution to this inequality; however, since we normally only consider the domain $(-\pi, \pi]$, this inconsistency is not \textit{that} significant.
+	
+	\subsection{$n$-th Root of $z \in \mathbb{C}$}
+	
+	Consider the complex number $3 + 4i$ and its fifth root. Its modulus is $5$, and therefore $\mo{\sqrt[5]{3 + 4i}} = 5$. Interestingly, there exists multiple solutions for $\arg \sqrt[5]{3 + 4i}$, as:
+	$$\frac{\theta}{5},\ \frac{\theta + 2\pi}{5},\ \frac{\theta + 4\pi}{5},\ \dots$$
+	are all valid solutions to $\arg \sqrt[5]{3 + 4i}$ (since the original $3 + 4i$ can also be represented with argument of $\theta$, $\theta + 2\pi$, $\theta + 4\pi$, etc). This behavior is distinct from taking an odd root of a real number, and therefore introduces complications.
+	
+	Interestingly, the argument of the fifth root of $3 + 4i$, when plotted on the complex plane, forms a pentagon:
+	\begin{center}
+		\begin{tikzpicture}
+			\coordinate (o) at (0, 0);
+			\coordinate (a) at (1, 0);
+			\coordinate (b) at (2, 1);
+		
+			\draw[thin,gray!40] (-3, -3) grid (3, 3);
+			\draw[->] (-3, 0)--(3, 0) node[right]{Real};
+			\draw[->] (0, -3)--(0, 3) node[above]{Imaginary};
+			
+			\draw[red, very thick] (0, 0) circle [radius=1.380];
+			\node[red] at (-1.5, 1.75) {$\mo{z} = \sqrt{5},\ z \in \mathbb{C}$};
+			
+			\draw[line width=2pt, blue, -stealth](0, 0)--(1.36, 0.254) node[anchor=south west]{$\sqrt{5}e^{i\frac{\theta}{5}}$};
+			\draw[line width=2pt, blue, -stealth](0, 0)--(0.177, 1.369) node[anchor=south west]{$\sqrt{5}e^{i\frac{\theta + 2\pi}{5}}$};
+			\draw[line width=2pt, blue, -stealth](0, 0)--(-1.247, 0.591) node[anchor=south east]{$\sqrt{5}e^{i\frac{\theta + 4\pi}{5}}$};
+			\draw[line width=2pt, blue, -stealth](0, 0)--(-0.948, -1.003) node[anchor=north east]{$\sqrt{5}e^{i\frac{\theta + 6\pi}{5}}$};
+			\draw[line width=2pt, blue, -stealth](0, 0)--(0.661, -1.211) node[anchor=north west]{$\sqrt{5}e^{i\frac{\theta + 8\pi}{5}}$};
+		\end{tikzpicture}
+	\end{center}
+	
+	This pattern generalizes across the $n$-th roots of a complex number, forming a regular $n$-sided polygon around the origin with radius of $\sqrt[n]{\mo{z}}$.
+	
+	Therefore, any $z \in \mathbb{C}$ has $n$-th root. Inductively, the polynomial $z^n - a$ always has a root.
+	
+	For more complicated polynomials there also exists a complex root,  but won't be proved in this section: $$z^n + a_{n-1}z^{n - 1} + a_{n - 2}^2z^{n - 2} + \dots + a_1z + a_0 = 0$$
+	
+	$\mathbb{C}$ is therefore "algebraically closed".
+	
+	Recall the formula:
+	\begin{align*}
+		\cos 2\theta &= \cos^2 \theta - sin^2 \theta \\
+		\cos 3\theta &= \cos^3 \theta - 3\cos \theta \sin^2 theta
+	\end{align*}
+	and so on. The above formula can be obtained by the binomial theorem:
+	\begin{gather*}
+		\cos(n\theta) + i\sin(n\theta) = (\cos \theta + i \sin\theta)^n
+	\end{gather*}
+	
+	The above formula correspond to the the geometric interpretation of complex multiplication: addition of the arguments corresponds to multiplication of the numbers (given that modulus is $1$).
+	
+	The right hand side can be expanded via the binomial theorem, resulting in:
+	\begin{gather*}
+		\cos^n \theta + in\cos^{n - 1}\theta\sin\theta - \binom{n}{2} \cos^{n - 2}\theta \sin^2 \theta + \dots
+	\end{gather*}
+	which, after applying the above to $\Re$, will equal to the original $\cos(n\theta)$.
 \end{document}
