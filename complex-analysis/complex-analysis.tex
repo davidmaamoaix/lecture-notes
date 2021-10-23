@@ -2,7 +2,12 @@
 
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{pgfplots}
 \usepackage{indentfirst}
+
+\usetikzlibrary{angles, quotes}
+
+\pgfplotsset{compat=newest}
 
 \title{Complex Analysis}
 \author{Linxuan Ma}
@@ -12,6 +17,7 @@
 	
 	\newcommand{\mo}[1]{\lvert #1 \rvert}
 	\newcommand{\mos}[1]{\lvert #1 \rvert^2}
+	\newcommand{\RR}{\mathbb{R}}
 	
 	\abstract{Convex analysis is the domain of mathematics that investigates functions of complex numbers. Despite its frequent occurrence in applied science, IB Mathematics seems to decide on not covering anything other than "haha $i^2$ is $-1$", so here's my attempt at creating notes for it after binging an entire semester of complex analysis in one night and getting sick immediately the next day due to sleep deprivation. Balanced IB life.}
 	
@@ -19,16 +25,16 @@
 	A complex number $x \in \mathbb{C}$ is a number of the form $$a + bi$$ where $a$ and $b$ are both real numbers.
 	
 	\subsection{Definitions}
-	The imaginary number $i$ is defined as $\sqrt{-1}$. Due to its equivalence with $\sqrt{1}$, $i$ obeys all arithmetic laws that apply to root terms. Similarly, it coerces into $-1 \in \mathbb{R}$ in the case of $i^2$.
+	The imaginary number $i$ is defined as $\sqrt{-1}$. Due to its equivalence with $\sqrt{1}$, $i$ obeys all arithmetic laws that apply to root terms. Similarly, it coerces into $-1 \in \RR$ in the case of $i^2$.
 	
-	Due to the encapsulation of $x \in \mathbb{C}$ over real numbers $a$ and $b$, a complex function $f: \mathbb{C} \to \mathbb{C}$ is isomorphic to $g: \mathbb{R}^2 \to \mathbb{R}^2$. Trivially, by decomposition we obtain
+	Due to the encapsulation of $x \in \mathbb{C}$ over real numbers $a$ and $b$, a complex function $f: \mathbb{C} \to \mathbb{C}$ is isomorphic to $g: \RR^2 \to \RR^2$. Trivially, by decomposition we obtain
 	\begin{gather*}
-		\Re: \mathbb{C} \to \mathbb{R} \\
-		\Im: \mathbb{C} \to \mathbb{R}
+		\Re: \mathbb{C} \to \RR \\
+		\Im: \mathbb{C} \to \RR
 	\end{gather*}
 	corresponding to retrieving real components $a$ and $b$.
 	
-	Deriving from $x \in \mathbb{C}$'s correspondence to a vector $\vec{x} \in \mathbb{R}$, the representation of a 2-dimensional coordinate can be concluded from $x$:
+	Deriving from $x \in \mathbb{C}$'s correspondence to a vector $\vec{x} \in \RR$, the representation of a 2-dimensional coordinate can be concluded from $x$:
 	
 	\begin{equation*}
 		\begin{bmatrix}
@@ -47,7 +53,7 @@
 	Note the isomorphism of the modulus-argument pair with the standard $a + bi$ form under the domain $-\pi < \theta \leq \pi$ for argument. In the remaining portion of this note, a complex number may take any of the following form:
 	
 	\begin{enumerate}
-		\item Regular form: $a + bi$ where $a, b \in \mathbb{R}$
+		\item Regular form: $a + bi$ where $a, b \in \RR$
 		\item Tuple form (equivalent to $a + bi$): $(a, b)$
 		\item Polar form (modulus $r$ and argument $\theta$): $r(cos \theta + i \sin \theta)$
 	\end{enumerate}
@@ -74,7 +80,7 @@
 	
 	It is clear that the complex conjugation $z \to \overline z$ is an automorphism of $\mathbb{C}$ (an isomorphic endofunctor).
 	
-	Trivially, $z * \overline z \in \mathbb{R}$.
+	Trivially, $z * \overline z \in \RR$.
 	
 	Rules regarding the polar representation can be trivially obtained via substitution of definitions:
 	
@@ -146,7 +152,7 @@
 	
 	Another application of complex arithmetic relates to the Pythagorean theorem, easily generating a set of Pythagorean triples from complex numbers. Consider the Pythagorean theorem of edge $a, b, c$ where $c \leq a + b$ in a right triangle: $$a^2 + b^2 = c^2$$
 	
-	Consider the modulus of an arbitrary complex number with integer real and imaginary parts, i.e. $a + bi$ where $a, b \in \mathbb{Q}$, then its modulus can be expressed as a single square root of an integer. Therefore, the modulus of the square of any $a + bi$ of integer coordinate is an integer:
+	Consider the modulus of an arbitrary complex number with integer real and imaginary parts, i.e. $a + bi$ where $a, b \in \mathbb{Z}$, then its modulus can be expressed as a single square root of an integer. Therefore, the modulus of the square of any $a + bi$ of integer coordinate is an integer:
 	\begin{align*}
 		\mo{a + bi} &= \sqrt{a^2 + b^2} \\
 		(a + bi)^2 &= a^2 - b^2 + (2ab)i  \\
@@ -164,7 +170,7 @@
 	
 	\subsubsection{Quaternions}
 	
-	A feasible expansion of the complex number system into $\mathbb{R}^3$ has yet to be proposed. However, there exists a $\mathbb{R}^4$ expansion, the quaternions, of the complex plane.
+	A feasible expansion of the complex number system into $\RR^3$ has yet to be proposed. However, there exists a $\RR^4$ expansion, the quaternions, of the complex plane.
 	
 	In the quaternion system, a complex number $a + bi$ is expanded into $a + bi + cj + dk$, where the multiplication of $i$, $j$ and $k$ is not communicative:
 	\begin{gather*}
@@ -184,7 +190,7 @@
 		z\overline{z} = a^2 + b^2 + c^2 + d^2
 	\end{align*}
 	
-	Note that the cross terms (such as $bcij$ and $bcji$) in the above equation vanish due to the non-communitivity ($ij$ = $-ji$).
+	Note that the cross terms (such as $bcij$ and $bcji$) in the above equation vanish due to the non-commutativity ($ij$ = $-ji$).
 	
 	The inverse of a quaternion can thus be found:
 	$$\frac{1}{a + bi + cj + dk} = \frac{a - bi - cj - dk}{a^2 + b^2 + c^2 + d^2}$$
@@ -192,5 +198,53 @@
 	All none-zero quaternions have inverses, similar to complex numbers.
 	
 	\section{Roots}
+	
+	Finding roots of complex numbers is significant in complex analysis. The square root of $x \in \RR$ can be represented as a complex number, such as:
+	\begin{align*}
+		\sqrt{10} &= \sqrt{10} + 0i \\
+		\sqrt{-5} &= \sqrt{5}i
+	\end{align*}
+	
+	\subsection{Geometric Interpretation of Multiplication}
+	
+	To better represent multiplication over the complex plane, we shall express multiplication in complex number's polar 
+	\begin{center}
+		\begin{tikzpicture}
+			\coordinate (o) at (0, 0);
+			\coordinate (a) at (1, 0);
+			\coordinate (b) at (2, 1);
+		
+			\draw[thin,gray!40] (-3, -3) grid (3, 3);
+			\draw[->] (-3, 0)--(3, 0) node[right]{Real};
+			\draw[->] (0, -3)--(0, 3) node[above]{Imaginary};
+			\draw[line width=2pt,blue,-stealth](0, 0)--(2, 1) node[anchor=south west]{$a + bi$};
+			
+			\pic [draw, -, "$\theta$", angle eccentricity=2] {angle = a--o--b};
+		\end{tikzpicture}
+	\end{center}
+	
+	From the above illustration we can conclude that:
+	\begin{align*}
+		z &= a + bi \\
+		r &= \mo{z} \\
+		x &= r * \cos \theta \\
+		y &= r * \sin \theta \\
+		\frac{y}{x} &= \tan \theta
+	\end{align*}
+	
+	Consider the set of complex numbers $S^1$ ($S$ for sphere, and $1$ for 1-dimensional) whose modulus is 1. This forms a group over multiplication, i.e:
+	\begin{gather*}
+		\forall z_1, z_2 \in S^1,\ \mo{z_1} = \mo{z_2} = 1 \\
+		z_1 * z_2 = 1 \\
+		\mo{z_1^{-1}} = 1
+	\end{gather*}
+	
+	Note that every complex number can be written in $r * z_i$ for a specific $z_i \in M$. In other words, there exists a unique isomorphism between any non-zero complex number and a $z_i$ scaled by a constant $r$: $$a + bi \cong r * z_i \ \text{for}\ a, b, r \in \RR,\ z_i \in S^1$$
+	
+	
+	$\mathbb{C}^*$ (non-zero complex number) is the product of $\RR_{>0} \times S^1$, and thus $$r_1 e^{i\theta_1} * r_2 e^{i\theta_2} = r_1r_2e^{i(\theta_1 + \theta_2)}$$
+	can be easily deduced. This also hints complex number's proficiency at representing rotations of $\RR^2$ (and therefore the existence of quaternions to describe rotations in $\RR^3$).
+	
+	\textbf{Warning:} When multiplying complex numbers on a computer, care must be taken to map the polar angles to $(-\pi, \pi]$ when converting from cartesian form to polar form.
 	
 \end{document}
