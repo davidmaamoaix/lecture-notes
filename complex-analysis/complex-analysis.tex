@@ -3,6 +3,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{pgfplots}
+\usepackage{mathtools}
 \usepackage{indentfirst}
 
 \usetikzlibrary{angles, quotes}
@@ -277,24 +278,24 @@
 	
 	Interestingly, the argument of the fifth root of $3 + 4i$, when plotted on the complex plane, forms a pentagon:
 	\begin{center}
-		\begin{tikzpicture}
-			\coordinate (o) at (0, 0);
-			\coordinate (a) at (1, 0);
-			\coordinate (b) at (2, 1);
+	\begin{tikzpicture}
+		\coordinate (o) at (0, 0);
+		\coordinate (a) at (1, 0);
+		\coordinate (b) at (2, 1);
+	
+		\draw[thin,gray!40] (-3, -3) grid (3, 3);
+		\draw[->] (-3, 0)--(3, 0) node[right]{Real};
+		\draw[->] (0, -3)--(0, 3) node[above]{Imaginary};
 		
-			\draw[thin,gray!40] (-3, -3) grid (3, 3);
-			\draw[->] (-3, 0)--(3, 0) node[right]{Real};
-			\draw[->] (0, -3)--(0, 3) node[above]{Imaginary};
-			
-			\draw[red, very thick] (0, 0) circle [radius=1.380];
-			\node[red] at (-1.5, 1.75) {$\mo{z} = \sqrt{5},\ z \in \mathbb{C}$};
-			
-			\draw[line width=2pt, blue, -stealth](0, 0)--(1.36, 0.254) node[anchor=south west]{$\sqrt{5}e^{i\frac{\theta}{5}}$};
-			\draw[line width=2pt, blue, -stealth](0, 0)--(0.177, 1.369) node[anchor=south west]{$\sqrt{5}e^{i\frac{\theta + 2\pi}{5}}$};
-			\draw[line width=2pt, blue, -stealth](0, 0)--(-1.247, 0.591) node[anchor=south east]{$\sqrt{5}e^{i\frac{\theta + 4\pi}{5}}$};
-			\draw[line width=2pt, blue, -stealth](0, 0)--(-0.948, -1.003) node[anchor=north east]{$\sqrt{5}e^{i\frac{\theta + 6\pi}{5}}$};
-			\draw[line width=2pt, blue, -stealth](0, 0)--(0.661, -1.211) node[anchor=north west]{$\sqrt{5}e^{i\frac{\theta + 8\pi}{5}}$};
-		\end{tikzpicture}
+		\draw[red, very thick] (0, 0) circle [radius=1.380];
+		\node[red] at (-1.5, 1.75) {$\mo{z} = \sqrt{5},\ z \in \mathbb{C}$};
+		
+		\draw[line width=2pt, blue, -stealth](0, 0)--(1.36, 0.254) node[anchor=south west]{$\sqrt{5}e^{i\frac{\theta}{5}}$};
+		\draw[line width=2pt, blue, -stealth](0, 0)--(0.177, 1.369) node[anchor=south west]{$\sqrt{5}e^{i\frac{\theta + 2\pi}{5}}$};
+		\draw[line width=2pt, blue, -stealth](0, 0)--(-1.247, 0.591) node[anchor=south east]{$\sqrt{5}e^{i\frac{\theta + 4\pi}{5}}$};
+		\draw[line width=2pt, blue, -stealth](0, 0)--(-0.948, -1.003) node[anchor=north east]{$\sqrt{5}e^{i\frac{\theta + 6\pi}{5}}$};
+		\draw[line width=2pt, blue, -stealth](0, 0)--(0.661, -1.211) node[anchor=north west]{$\sqrt{5}e^{i\frac{\theta + 8\pi}{5}}$};
+	\end{tikzpicture}
 	\end{center}
 	
 	This pattern generalizes across the $n$-th roots of a complex number, forming a regular $n$-sided polygon around the origin with radius of $\sqrt[n]{\mo{z}}$.
@@ -322,4 +323,53 @@
 		\cos^n \theta + in\cos^{n - 1}\theta\sin\theta - \binom{n}{2} \cos^{n - 2}\theta \sin^2 \theta + \dots
 	\end{gather*}
 	which, after applying the above to $\Re$, will equal to the original $\cos(n\theta)$.
+	
+	\section{Exp, Log and Trigonometry}
+	
+	The exponential function can be defined as a power series that converges:
+	$$\exp(z) = 1 + z + \frac{z^2}{2!} + \frac{2^3}{3!} + \dots$$
+	
+	If a series of complex numbers $a_0 + a_1 + a_2 + \dots$ is convergent, then $\Re(a_0) + \Re(a_1) + \dots$ and $\Im(a_0) + \Im(a_1) + \dots$ also converges due to $\mo{\Re(z)} \leq \mo{z}$ and $\mo{\Im(z)} \leq \mo{z}$.
+	
+	\subsection{Properties of the Exponential Function}
+	Properties of the exponential function includes:
+	\begin{gather*}
+		\exp(z_1 + z_2) = \exp(z_1) * \exp(z_2)
+	\end{gather*}
+	which can be proven with:
+	\begin{align*}
+		\sum_{n=0}^\infty \frac{(z_1 + z_2)^n}{n!} &= \sum_{n, m=0}^\infty \frac{\binom{n}{m}z_1^m z_2^{n - m}}{n!} \\
+		&= \sum_{n, m=0}^\infty \frac{z_1^m}{m!}*\frac{z_2^{n-m}}{(n-m)!} \\
+		&= \sum_{n, m=0}^\infty \frac{z_1^m}{m!}*\frac{z_2^n}{n!} \\
+		&= \exp(z_1) * \exp(z_2)
+	\end{align*}
+	
+	Defining $z \in \mathbb{C}$ as $z = a + bi$, $e^z = e^{a + bi} = e^a*e^{bi}$. Note that the left section $e^a \in \RR$, while $e^{bi} \in \mathbb{C}$. We can rewrite this as:
+	\begin{align*}
+		\exp(bi) &= 1 + bi + \frac{b^2i^2}{2!} + \frac{b^3i^3}{3!} + \dots \\
+		&= 1 + bi - \frac{b^2}{2!} - \frac{-b^3i}{3!} + \frac{b^4}{4!} + \dots
+	\end{align*}
+	
+	Note that the series $1,\ -\frac{b^2}{2!},\ \frac{b^4}{4!},\ \dots$ is just the series for $\cos(b)$, while the series $bi,\ -\frac{b^3i}{3!},\ \frac{b^5i}{5!},\ \dots$ is the series for $i * \sin(b)$.
+	
+	Therefore, Euler's identity can be deduced from the above equation: 
+	\begin{align*}
+		e^{i\theta} &= \cos \theta + i \sin \theta \\
+		e^{i\pi} &= -1 \\
+		e^{2i\pi} &= 1 \\
+		e^{2ni\pi} &= 1,\ n \in \mathbb{Z}
+	\end{align*}
+ 		
+ 	Exponentials can also be viewed as a homomorphism of groups: $$\exp(z_1 + z_2) = \exp(z_1)\exp(z_2)$$
+ 	from complex numbers under addition to complex numbers under multiplication (in polar coordinates): $$\mathbb{C}^+ \xrightarrow{\exp} \mathbb{C}^*$$
+
+	The above is satisfied if the modulus of the object being mapped is non-zero. In addition, observe that:
+	\begin{align*}
+		r(\cos \theta + i\sin \theta) &= r * \exp(i\theta) \\
+		&= \exp(\ln r) * \exp(i\theta) \\
+		&= \exp(\ln r + i\theta)
+	\end{align*}
+	
+	
+	
 \end{document}
