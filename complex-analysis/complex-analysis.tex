@@ -375,7 +375,7 @@
 	
 	\subsection{The Logarithm Function}
 	
-	The $\ln$ function is the inverse of the exponentiation function e.g. solving for $a$ and $b$ in $\exp(a + bi) = z$ becomes $a + bi = \ln z$. Since the polar representation of $a + bi$ is $r(\cos \theta + i\sin \theta)$, it can be deduced that:
+	The $\ln$ function is the inverse of the exponential function e.g. solving for $a$ and $b$ in $\exp(a + bi) = z$ becomes $a + bi = \ln z$. Since the polar representation of $a + bi$ is $r(\cos \theta + i\sin \theta)$, it can be deduced that:
 	\begin{align*}
 		\exp(a) &= r = \mo{z} \\
 		\theta &= \arg z
@@ -401,5 +401,61 @@
 	The same conclusion is arrived for defining $\cos$ as the power series derived from the definition (in series form) of the exponential function.
 	
 	Similarly: $$\frac{e^{iz} + e^{-iz}}{2} = \cos z$$
+	
+	In addition, identities of the trigonometric functions follow the identity of the exponential function:
+	\begin{align*}
+		\cos(\theta_1 + \theta_2) &= \cos \theta_1 \cos \theta_2 - \sin \theta_1 \sin \theta_2 \\
+		\exp(z_1 + z_2) &= \exp(z_1) * \exp(z_2) \text{ (substitution)}
+	\end{align*}
+	
+	Note that the $\sin$ and $\cos$ functions are defined over the entire complex plane due to its correspondence with Euler's identity.
+	
+	\subsection{Applications of Complex Trigonometry}
+	
+	Due to the flexibility of trigonometric functions in the complex plane, there are numerous applications of it. The following section lists a few simple and significant ones.
+	
+	\subsubsection{Differential Equation}
+	
+	Consider the linear differential equation: $$a\frac{d^2y}{dx^2} + b\frac{dy}{dx} + cy = 0$$
+	With complex numbers, the above can be solved trivially:
+	\begin{align*}
+		y &= e^{\lambda x} \\
+		a\lambda^2e^{\lambda x} + b\lambda e^{\lambda x} + ce^\lambda &= 0 \\
+		a \lambda^2 + b\lambda + c &= 0
+	\end{align*}
+	
+	$\lambda$ can be solved with a simple quadratic equation. Consider the example: $$\frac{d^2 y}{dx} + 2\frac{dy}{dx} + 2y = 0$$
+	By implementing the concept above, we obtain:
+	\begin{align*}
+		\lambda^2 + 2\lambda + 2 &= 0 \\
+		\lambda = -1 \pm \sqrt{1^2 - 2} &= -1 \pm i \\
+		\exp((1 + i)x),\ \exp((1 - i)x) &= y
+	\end{align*}
+	
+	\subsubsection{Fourier Series}
+	
+	With a periodic function $f$: 
+	\begin{gather*}
+		f(x) = f(2\pi + x)
+	\end{gather*}
+	$f$ can be written as a sum of $sin$ and $cos$ functions (thus simplified with complex numbers):
+	\begin{align*}
+		f(x) &= \sum_{n > 0} a_n \sin(nx) + \sum_{n \geq 0} b_n \cos{nx} \\
+		&= \sum_{n \in \mathbb{Z}} c_n e^{inx}
+	\end{align*}
+	
+	\subsection{Tangent of $z$}
+	
+	The regular difinition for the trigonometric function $\tan$ is $\sin$ divided by $\cos$:
+	\begin{gather*}
+		\tan z = \frac{\sin z}{\cos z}
+	\end{gather*}
+	
+	Due to Euler's indetity, $\tan$ can be represented as:
+	\begin{gather*}
+		\tan z = \frac{1}{i} * \frac{e^{iz} - e^{-iz}}{e^{iz} + e^{-iz}}
+	\end{gather*}
+	
+	Except near the real axis, the tangent function is almost constant around $\tan z = i$.
 	
 \end{document}
