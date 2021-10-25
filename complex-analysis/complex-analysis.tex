@@ -331,7 +331,7 @@
 	
 	If a series of complex numbers $a_0 + a_1 + a_2 + \dots$ is convergent, then $\Re(a_0) + \Re(a_1) + \dots$ and $\Im(a_0) + \Im(a_1) + \dots$ also converges due to $\mo{\Re(z)} \leq \mo{z}$ and $\mo{\Im(z)} \leq \mo{z}$.
 	
-	\subsection{Properties of the Exponential Function}
+	\subsection{The Exponential Function}
 	Properties of the exponential function includes:
 	\begin{gather*}
 		\exp(z_1 + z_2) = \exp(z_1) * \exp(z_2)
@@ -360,8 +360,8 @@
 		e^{2ni\pi} &= 1,\ n \in \mathbb{Z}
 	\end{align*}
  		
- 	Exponentials can also be viewed as a homomorphism of groups: $$\exp(z_1 + z_2) = \exp(z_1)\exp(z_2)$$
- 	from complex numbers under addition to complex numbers under multiplication (in polar coordinates): $$\mathbb{C}^+ \xrightarrow{\exp} \mathbb{C}^*$$
+ 	Exponentials can also be viewed as a homomorphism of groups (note that the mapping is surjective but not injective): $$\exp(z_1 + z_2) = \exp(z_1)\exp(z_2)$$
+ 	from complex numbers under addition to complex numbers under multiplication (in polar coordinates): $$\mathbb{C} \xrightarrow{\exp} \mathbb{C}^*$$
 
 	The above is satisfied if the modulus of the object being mapped is non-zero. In addition, observe that:
 	\begin{align*}
@@ -369,7 +369,37 @@
 		&= \exp(\ln r) * \exp(i\theta) \\
 		&= \exp(\ln r + i\theta)
 	\end{align*}
+	therefore the homomorphism is satisfied for $r \neq 0$.
 	
+	Incidentally, there also exists a homomorphism of real numbers $\RR$ under addition to $\RR$ under multiplication that is injective yet not surjective (trivial).
 	
+	\subsection{The Logarithm Function}
+	
+	The $\ln$ function is the inverse of the exponentiation function e.g. solving for $a$ and $b$ in $\exp(a + bi) = z$ becomes $a + bi = \ln z$. Since the polar representation of $a + bi$ is $r(\cos \theta + i\sin \theta)$, it can be deduced that:
+	\begin{align*}
+		\exp(a) &= r = \mo{z} \\
+		\theta &= \arg z
+	\end{align*}
+	
+	Note that $\ln(z)$ is not unique (only defined up to multiples of $2\pi i$). The logarithm function can't be defined continuously for all non-zero complex numbers (due to the ambiguity in the argument of the complex number):
+	$$z_1^{z_2} = \exp(z_2 * \ln(z_1))$$
+	is only well-defined when:
+	\begin{enumerate}
+		\item $z_1 > 0$ and $z_1 \in \RR$ (trivial)
+		\item $z_2 \in \mathbb{Z}$ (ambiguity is unimpactful as $z_1^{z_2} = 1$)
+	\end{enumerate}
+	
+	\subsection{Trigonometric Functions}
+	
+	The $\cos$ function and $\sin$ function are just special cases for the exponential function:
+	\begin{align*}
+		e^{iz} &= \cos z + i\sin z \\
+		e^{-iz} &= \cos z - i\sin z \\
+		\frac{e^{iz} + e^{-iz}}{2} &= \cos z
+	\end{align*}
+	
+	The same conclusion is arrived for defining $\cos$ as the power series derived from the definition (in series form) of the exponential function.
+	
+	Similarly: $$\frac{e^{iz} + e^{-iz}}{2} = \cos z$$
 	
 \end{document}
