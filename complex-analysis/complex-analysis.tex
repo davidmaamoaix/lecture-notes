@@ -19,6 +19,7 @@
 	\newcommand{\mo}[1]{\lvert #1 \rvert}
 	\newcommand{\mos}[1]{\lvert #1 \rvert^2}
 	\newcommand{\RR}{\mathbb{R}}
+	\newcommand{\p}{\partial}
 	
 	\abstract{Convex analysis is the domain of mathematics that investigates functions of complex numbers. Despite its frequent occurrence in applied science, IB Mathematics seems to decide on not covering anything other than "haha $i^2$ is $-1$", so here's my attempt at creating notes for it after binging an entire semester of complex analysis in one night and getting sick immediately the next day due to sleep deprivation. Balanced IB life.}
 	
@@ -457,5 +458,53 @@
 	\end{gather*}
 	
 	Except near the real axis, the tangent function is almost constant around $\tan z = i$.
+	
+	\section{Complex Derivatives}
+	
+	Complex derivatives refer to the result of differentiating a complex function.
+	
+	\subsection{Real Derivatives of Complex Functions}
+	
+	In real analysis, we recall real differentiation: $$f: \RR \to \RR$$
+	
+	$f$ is differentiable at $x_0 \in \RR$ if $f$ is approximately linear at $x_0$, i.e. $f(x) = f(x_0) + a(x - x_0)$ where $a$ is the slope at $x$. This is derived from the definition of derivatives.
+	
+	An alternative way of defining derivatives (or the more commonly known one) is: $$\lim_{dx \to 0} \frac{f(x) - f(x_0)}{dx}$$ where $dx = x - x_0$.
+	
+	Consider $w = u + vi$ is a function of $z = x + yi$, where $u$, $v$, $x$ and $y$ are real values. $u$ and $v$ can be viewed as functions over two real values that resembles the way in which we deduce derivatives for real functions:
+	\begin{equation*}
+		\begin{bmatrix}
+			u(x, y) \\ v(x, y)
+		\end{bmatrix} = 
+		\begin{bmatrix}
+			u(x_0, y_0) \\ v(x_0, y_0)
+		\end{bmatrix} +
+		\begin{bmatrix}
+			a & b \\c & d
+		\end{bmatrix}
+		\begin{bmatrix}
+			x - x_0 \\ y - y_0
+		\end{bmatrix}  + \epsilon
+	\end{equation*}
+	where $\epsilon$ denotes the error value as the (small)  cost $$\lim_{(x, y)  \to (x_0, y_0)}\frac{\mo{\epsilon}}{\mo{(x, y) - (x_0, y_0)}} \to 0$$
+	of such linear approximation.
+	
+	$w$ being differential at $z$ implies that $w$ can be approximated by the above linear function.
+	
+	The matrix of $a$, $b$, $c$ and $d$ can be rewritten as a matrix of partial derivatives:
+	
+	\begin{equation*}
+		\begin{bmatrix}
+			\frac{\p u}{\p x} & \frac{\p u}{\p y} \\
+			\frac{\p v}{\p x} & \frac{\p v}{\p y}
+		\end{bmatrix}
+	\end{equation*}
+	
+	The above function for $w$ only defines the real differentiability of a function.
+	
+	\subsection{Complex Derivatives}
+	
+	Consider $w = u + vi$ and $z = x + yi$ but in respect of the complex plane:
+	
 	
 \end{document}
