@@ -504,7 +504,31 @@
 	
 	\subsection{Complex Derivatives}
 	
-	Consider $w = u + vi$ and $z = x + yi$ but in respect of the complex plane:
+	Consider $w = u + vi$ and $z = x + yi$ in respect of the complex plane: $$w(z) = w(z_0) + A(z - z_0) + \epsilon$$
+	where $\epsilon$ is less than linear (same as above), $A \in \mathbb{C}$.
+	
+	The transformation by $A$ can be described in the matrix form:
+	\begin{equation*}
+		\begin{bmatrix}
+			\Re(A) & -\Im(A) \\ \Im(A) & \Re(A)
+		\end{bmatrix}
+		\begin{bmatrix}
+			x - x_0 \\ y - y_0
+		\end{bmatrix}
+	\end{equation*}
+	or via direct definition: $$A(x + yi) = x\Re(A) - y\Im(A) + i(x\Im(A) +y\Re(A))$$
+	
+	$w$ is only differentiable as a complex function when $A$ is equivalent with the differentiation matrix of $w$ over real values:
+	\begin{align*}
+		\Re(A) &= \frac{\p u}{\p x} = \frac{\p v}{\p y} \\
+		\Im(A) &= \frac{\p v}{\p x} = -\frac{\p u}{\p y}
+	\end{align*}
+	
+	The above equation is referred to as the \textit{Cauchy-Riemann Equations}, the condition under which a real function is complex differentiable (if and only if).
+	
+	In terms of limits, $A$ can be represented as: $$A = \lim_{dz \to 0} \frac{w(z) - w(z_0)}{dz},\ dz = z-z_0$$
+	
+	
 	
 	
 \end{document}
