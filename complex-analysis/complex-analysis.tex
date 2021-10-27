@@ -524,10 +524,33 @@
 		\Im(A) &= \frac{\p v}{\p x} = -\frac{\p u}{\p y}
 	\end{align*}
 	
-	The above equation is referred to as the \textit{Cauchy-Riemann Equations}, the condition under which a real function is complex differentiable (if and only if).
+	The above equation is referred to as the \textit{Cauchy-Riemann Equation}, the condition under which a real function is complex differentiable (if and only if).
 	
 	In terms of limits, $A$ can be represented as: $$A = \lim_{dz \to 0} \frac{w(z) - w(z_0)}{dz},\ dz = z-z_0$$
 	
+	\subsection{Holomorphic Functions}
+	
+	Suppose $w$ is a complex function of $z \in U \subseteq \mathbb{C}$, $w$ is \textit{holomorphic} if it is complex differentiable for all points on $U$ (therefore continuous and holds real derivatives that satisfies the Cauchy-Riemann equation). The concept of holomorphic function is crucial to complex analysis.
+	
+	Another representation of the Cauchy-Riemann equation is to define the partial derivatives to $z$ and $\overline{z}$ respectively, referred to as the \textit{Wirtinger Derivatives}. The derivatives are defined as:
+	\begin{align*}
+		\frac{\p}{\p z} &= \frac{1}{2}\left(\frac{\p}{\p x} - i\frac{\p}{\p y}\right) \\
+		\frac{\p}{\p \overline{z}} &= \frac{1}{2}\left(\frac{\p}{\p x} + i\frac{\p}{\p y}\right)
+	\end{align*}
+	
+	The reasoning behind the definition is that:
+	\begin{align*}
+		\frac{\p z}{\p z} = 1&,\ \frac{\p \overline{z}}{\p z} = 0 \\
+		\frac{\p z}{\p \overline{z}} = 0&,\ \frac{\p \overline{z}}{\p \overline{z}} = 1
+	\end{align*}
+	
+	Informally, holomorphic can be understood as a function that "depends on $z$ but not $\overline{z}$";  however, such statement is meaningless and merely provides an understanding as a function that depends on $z$ is not dependent on $\overline{z}$ (definition of complex conjugation) (more explanations on this in the succeeding sections).
+	
+	Suppose $f$ and $g$ are holomorphic on open set $U$, then $f + g$, $f - g$, $f * g$, $f / g$ and $f.g$ are all holomorphic.
+	
+	Therefore, the trigonometric functions as well as $\exp$ and $\ln$ are all differentiable over well-defined points. Surprisingly, $\frac{df}{dz}$ is holomorphic if $f$ is holomorphic. This is distinct from the properties of real functions.
+	
+	Some examples of functions that are not holomorphic: $\Re(z)$, $\Im(z)$, $\mo{z}$, $\mos{z}$, $\overline{z}$.
 	
 	
 	
