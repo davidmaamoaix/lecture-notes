@@ -1,7 +1,12 @@
 \documentclass[12pt]{article}
 
 \usepackage{amsmath}
+\usepackage{amsthm}
 \usepackage{indentfirst}
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition }[section]
+\newtheorem{ex}{Exercise}
 
 \title{Applied Category Theory}
 \author{Linxuan Ma}
@@ -11,8 +16,20 @@
 	
 	\abstract{Category theory is the study of formalization of mathematical structures and concepts as an abstract directed graph. This note mainly consists of topics explored in \textit{An Invitation to Applied Category Theory}, with some bonus information from theoretical category theory and general abstract algebra to aid the understanding of certain concepts illustrated in the book.}
 	
-	\section{Preorders}
+	\section{Generative Effects}
 	
-	A preorder $X$ is a mathematical structure equipped with binary operation $\preceq_X$
+	A central focus of category theory is the abstraction of mathematical structures and their relationships. In particular, a mapping is a crucial structure in category theory that represents an abstracted relationship between two objects. A mapping $f: X \to Y$ denotes a relationship of $X$ with $Y$.
+	
+	You might notice the denotational resemblance of mappings to functions, which uses $f: X \to Y$ to denote a transformation from members of $X$ to members of $Y$ (i.e. a member of the dependent product formed over the constant dependent type $\prod_{(\_:A)}B$). However, in the scope of category theory, abstraction is imperative for the sake of generalizability, and therefore we do not limit mappings to represent concrete structures of transformation between objects. Such pattern of lacking concreteness is common in structures related to category theory and abstract algebra (oMg it literally has the word "abstract" in its name what were you expecting you dum dum).
+	
+	\begin{defn}
+		A \emph{mapping} $f: X \to Y$ is an observation of $X$ via the relationship it has with $Y$, conforming:
+		\begin{itemize}
+			\item \textbf{Composition}: given $f: A \to B$ and $g: B \to C$, there exists an associative composition $g \circ f: A \to C$
+			\item \textbf{Identity}: for every mapping $f: A \to B$ there exists a unit mapping $\textbf{1}$ such that: $$f \circ \textbf{1}_A = f = \textbf{1}_B \circ f$$
+		\end{itemize}
+	\end{defn}
+	
+	In other words, mappings form a monoid over the composition operation.
 	
 \end{document}
