@@ -530,7 +530,7 @@
 	
 	\subsection{Holomorphic Functions}
 	
-	Suppose $w$ is a complex function of $z \in U \subseteq \mathbb{C}$, $w$ is \textit{holomorphic} if it is complex differentiable for all points on $U$ (therefore continuous and holds real derivatives that satisfies the Cauchy-Riemann equation). The concept of holomorphic function is crucial to complex analysis.
+	Suppose $w$ is a complex function of $z \in U \subseteq \mathbb{C}$ where $U$ is an open set, $w$ is \textit{holomorphic} if it is complex differentiable for all points on $U$ (therefore continuous and holds real derivatives that satisfies the Cauchy-Riemann equation). The concept of holomorphic function is crucial to complex analysis.
 	
 	Another representation of the Cauchy-Riemann equation is to define the partial derivatives to $z$ and $\overline{z}$ respectively, referred to as the \textit{Wirtinger Derivatives}. The derivatives are defined as:
 	\begin{align*}
@@ -552,6 +552,32 @@
 	
 	Some examples of functions that are not holomorphic: $\Re(z)$, $\Im(z)$, $\mo{z}$, $\mos{z}$, $\overline{z}$.
 	
+	Consider the function $f(z) = z^2$. $f$ is holomorphic in $\mathbb{C}$, and can be shown with the Cauchy-Riemann equation. We start by rewriting $f$:
+	\begin{align*}
+		f(z) &= z^2 = (x + yi)^2 \\
+		&= x^2 + 2xyi - y^2 \\
+		&= (x^2 + y^2) + i(2xy)
+	\end{align*}
 	
+	Recall the Cauchy-Riemann equation:
+	\begin{align*}
+		f(z) &= u(x, y) + iz(x, y) \\
+		\frac{\p u}{\p x} &= \frac{\p v}{\p y} \\
+		\frac{\p u}{\p y} &= -\frac{\p v}{\p x}
+	\end{align*}
+	
+	The resulting equation from transforming $f(z) = z^2$ can be pattern matched with the Cauchy-Riemann equation:
+	\begin{align*}
+		u(x, y) &= x^2 - y^2 \\
+		v(x, y) &= 2xy
+	\end{align*}
+	
+	Therefore:
+	\begin{align*}
+		\frac{\p u}{\p x} &= \frac{\p v}{\p y} = 2x \\
+		\frac{\p u}{\p y} &= -2y \\
+		\frac{\p v}{\p x} &= 2y
+	\end{align*}
+	The above proves that $f(z) = z^2$  is indeed holomorphic.
 	
 \end{document}
