@@ -8,6 +8,10 @@
 \newtheorem{defn}{Definition }[section]
 \newtheorem{ex}{Exercise}
 
+\newcommand{\mo}[1]{\lvert #1 \rvert}
+\newcommand{\mos}[1]{\lvert #1 \rvert^2}
+\newcommand{\RR}{\mathbb{R}}
+
 \title{Applied Category Theory}
 \author{Linxuan Ma}
 
@@ -20,10 +24,10 @@
 	
 	A central focus of category theory is the abstraction of mathematical structures and their relationships. In particular, a mapping is a crucial structure in category theory that represents an abstracted relationship between two objects. A mapping $f: X \to Y$ denotes a relationship of $X$ with $Y$.
 	
-	You might notice the denotational resemblance of mappings to functions, which uses $f: X \to Y$ to denote a transformation from members of $X$ to members of $Y$ (i.e. a member of the dependent product formed over the constant dependent type $\prod_{(\_:A)}B$). However, in the scope of category theory, abstraction is imperative for the sake of generalizability, and therefore we do not limit mappings to represent concrete structures of transformation between objects. Such pattern of lacking concreteness is common in structures related to category theory and abstract algebra (oMg it literally has the word "abstract" in its name what were you expecting you dum dum).
+	You might notice the denotational resemblance of mappings to functions, which uses $f: X \to Y$ to denote a transformation from members of $X$ to members of $Y$ (i.e. a member of the dependent product formed over the constant dependent type $\prod_{(\_:A)}B$). However, in the scope of category theory, abstraction is imperative for the sake of generalizability, and therefore we do not limit mappings to represent concrete structures of transformation between objects. Such pattern of lacking concreteness is common among structures related to category theory and abstract algebra (oMg it literally has the word "abstract" in its name what were you expecting you dum dum).
 	
 	\begin{defn}
-		A \emph{mapping} $f: X \to Y$ is an observation of $X$ via the relationship it has with $Y$, conforming:
+		A \emph{mapping} $f: X \to Y$ is an observation of $X$ via the relationship it has with $Y$, conforming to:
 		\begin{itemize}
 			\item \textbf{Composition}: given $f: A \to B$ and $g: B \to C$, there exists an associative composition $g \circ f: A \to C$
 			\item \textbf{Identity}: for every mapping $f: A \to B$ there exists a unit mapping $\textbf{1}$ such that: $$f \circ \textbf{1}_A = f = \textbf{1}_B \circ f$$
@@ -31,5 +35,13 @@
 	\end{defn}
 	
 	In other words, mappings form a monoid over the composition operation.
+	
+	One noteworthy implication of mappings is that a mapping preserves some form of structure or information. To illustrate, a monotonous function $f$ preserves order: $x \leq y \iff f(x) \leq f(y)$, a metric-preserving function preserves the distance defined in the given system: $\mo{x - y} = \mo{f(x) - f(y)}$, etc. The specific information which the mapping preserve is determined by the category it belong to.
+	
+	\subsection{Introduction to Generative Effects}
+	
+	As mentioned previously, the notions of generative effect and structure preservation do not exist without a bounded context. We shall first construct a simple system to illustrate such ideas.
+	
+	Consider the set $U = \{A, B, C\}$ where a partition of $U$ denotes a transitive closure of elements in $U$. We now defined $\Phi(p)$ as the observation that if elements $A$ and $C$ are connected (potentially through a connection through other elements) in partition $p$.
 	
 \end{document}
