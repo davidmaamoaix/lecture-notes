@@ -4,6 +4,7 @@
 \usepackage{amssymb}
 \usepackage{pgfplots}
 \usepackage{mathtools}
+\usepackage{booktabs}
 \usepackage{indentfirst}
 
 \usetikzlibrary{angles, quotes}
@@ -579,5 +580,33 @@
 		\frac{\p v}{\p x} &= 2y
 	\end{align*}
 	The above shows that $f(z) = z^2$  is indeed holomorphic.
+	
+	\section{Harmonic Functions}
+	
+	Recall the definition of complex function $w(z) = u(z) + iv(z)$ where $z$ is complex. Given a function $u$ of $x,\ y \in \mathbb{C}$, there exists no way to find a holomorphic $w$ such that $u(z) = \Re(w(z))$. If $w$ is holomorphic, it satisfies the Cauchy-Riemann equation. Consider the equation after differentiating with respect to $x$:
+	\begin{align*}
+		\frac{\p}{\p x} \frac{\p u}{\p x} &= \frac{\p}{\p x} \frac{\p v}{\p y} \\
+		\frac{\p^2 u}{\p x^2} &= \frac{\p^2 v}{\p x \p y} = \frac{-\p^2 u}{\p y^2}
+	\end{align*}
+		
+	From the equation it can be concluded that:
+	$$\frac{\p^2 u}{\p x^2} + \frac{\p^2 u}{\p y^2} = 0$$
+	
+	The above equation is referred to as the \emph{Laplace equation}, and functions that satisfy such equation is a \emph{harmonic equation}. The Laplace equation can be written in terms of the Laplacian operator: $$\nabla(u) = \frac{\p^2 u}{\p x^2} + \frac{\p^2 u}{\p y^2}$$
+	
+	To find all harmonic polynomials in the cartesian plane, we start by taking complex polynomials of $z$ and take their real and imaginary part:
+	\begin{table}[ht]
+	\centering
+	\begin{tabular}[t]{lccccc}
+	\toprule
+		$$ & $1$ & $z$ & $z^2$ & $z^3$ & $\dots$ \\
+	\midrule
+		$\Re$ & $1$ & $x$ & $x^2- x^2$ & $x^3 - 3xy^2$ & --\\
+		$\Im$ & -- & -- & $2xy$ & $3x^2y - y^3$ & -- \\
+	\bottomrule
+	\end{tabular}
+	\end{table}
+	
+	Any linear combination of harmonic polynomials is harmonic. The above table illustrates the basis of all harmonic polynomials.
 	
 \end{document}
