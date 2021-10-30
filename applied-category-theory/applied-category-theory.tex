@@ -2,15 +2,19 @@
 
 \usepackage{amsmath}
 \usepackage{amsthm}
+\usepackage{amssymb}
 \usepackage{indentfirst}
+\usepackage{tikz-cd}
 
 \theoremstyle{definition}
-\newtheorem{defn}{Definition }[section]
+\newtheorem{defn}{Definition}[section]
 \newtheorem{ex}{Exercise}
 
 \newcommand{\mo}[1]{\lvert #1 \rvert}
 \newcommand{\mos}[1]{\lvert #1 \rvert^2}
 \newcommand{\RR}{\mathbb{R}}
+\newcommand{\T}{\text{true}}
+\newcommand{\F}{\text{false}}
 
 \title{Applied Category Theory}
 \author{Linxuan Ma}
@@ -24,7 +28,7 @@
 	
 	A central focus of category theory is the abstraction of mathematical structures and their relationships. In particular, a mapping is a crucial structure in category theory that represents an abstracted relationship between two objects. A mapping $f: X \to Y$ denotes a relationship of $X$ with $Y$.
 	
-	You might notice the denotational resemblance of mappings to functions, which uses $f: X \to Y$ to denote a transformation from members of $X$ to members of $Y$ (i.e. a member of the dependent product formed over the constant dependent type $\prod_{(\_:A)}B$). However, in the scope of category theory, abstraction is imperative for the sake of generalizability, and therefore we do not limit mappings to represent concrete structures of transformation between objects. Such pattern of lacking concreteness is common among structures related to category theory and abstract algebra (oMg it literally has the word "abstract" in its name what were you expecting you dum dum).
+	Notice the denotational resemblance of mappings to functions, which uses $f: X \to Y$ to denote a transformation from members of $X$ to members of $Y$ (i.e. a member of the dependent product formed over the constant dependent type $\prod_{(\_:A)}B$). However, in the scope of category theory, abstraction is imperative for the sake of generalizability, and therefore we do not limit mappings to represent concrete structures of transformation between objects. Such pattern of lacking concreteness is common among structures related to category theory and abstract algebra (oMg it literally has the word "abstract" in its name what were you expecting you dum dum).
 	
 	\begin{defn}
 		A \emph{mapping} $f: X \to Y$ is an observation of $X$ via the relationship it has with $Y$, conforming to:
@@ -42,7 +46,7 @@
 	
 	As mentioned, the notions of generative effect and structure preservation do not exist without a bounded context. We shall first construct a simple system to illustrate such ideas.
 	
-	Consider the set $U = \{A, B, C\}$ where a partition of $U$ denotes a transitive closure of elements in $U$. We now defined $\Phi(p)$ as the observation that if elements $A$ and $C$ are connected (potentially through a connection through other elements) in the closure described by partition $p$. Note that in this particular system, there is an isomorphism between two element's connectivity in the closure described by $p$ and their mutual existence in $p$; however, viewing the system in a way that is dependent on such behavior is discouraged, as the partition $p$ and the observation $\Phi$ are  meant to be methods of abstracting the idea of "connections".
+	Consider the set $U = \{A, B, C\}$ where a subset of $U$ denotes a transitive closure of elements in $U$. We now defined $\Phi(p)$ as the observation that if elements $A$ and $C$ are connected (potentially through a connection through other elements) in the closure described by subset $p$. Note that in this particular system, there is an isomorphism between two element's connectivity in the closure described by $p$ and their mutual existence in $p$; however, viewing the system in a way that is dependent on such behavior is discouraged, as the subset $p$ and the observation $\Phi$ are  meant to be methods of abstracting the idea of "connections".
 	
 	We then define the joining of two closures. Two points $x$ and $y$ are connected in the closure $\alpha \lor \beta$ is true if and only if there exists a sequence of point $\{z_1, z_2, \dots, z_n\} \in \alpha \cup \beta$ such that:
 	\begin{itemize}
@@ -61,6 +65,62 @@
 	
 	However, $p \lor q$ connects $A$ and $C$ via the sequence of objects $\{B\} \in p \cup q$, resulting in: $$\phi(p \lor q) = \text{true}$$
 	
-	We observe that the observation $\Phi$ is not preserved over the join operation, i.e. $\Phi$ is inherently lossy with respect to join. This is a simple illustration of a generative effect: a property of a composite system that cannot be observed/determined given only its constituent subsystems.
+	We observe that the observation $\Phi$ is not preserved over the join operation, i.e. $\Phi$ is inherently lossy with respect to join. This is a simple illustration of a generative effect: a property of a composite system that cannot be observed or determined given only its constituent subsystems.
+	
+	\subsection{Ordering}
+	
+	We now introduce more intricate structures based on the system of $U$ which we devised in the last section. An ordering system is a system whose objects can be compared with an object to yield a boolean result.
+	
+	To adapt to more sophisticated observations regarding $U$, we shall expand our representation of connected closures to a partition of $U$, where each element denotes a closure of elements in $U$. To perform $P \lor Q$, for each pair of connected elements $a$ and $b$ in $Q$, we add the union of the elements which $a$ and $b$ are located in $P$ to $P$, and remove the respective constituent subset.
+	\begin{align*}
+		P &= \{\{A, B\}, \{C\}\} \\
+		Q &= \{\{A\}, \{B, C\}\} \\
+		P \lor Q &= \{\{A, B, C\}\}
+	\end{align*}
+	
+	Consider an order on $U$ where $P \preceq Q$ if for every connected pair $x$ and $y$ in $p$, $x$ and $y$ are connected in $Q$. For instance: $$\{\{A\}, \{B\}, \{C\}\} \preceq \{\{A, B\}, \{C\}\}$$
+	
+	The notion of $X \preceq Y$ can be viewed as a mapping: a relationship of $X$ with $Y$. Note that the relationship $\preceq$ does not occur on any two systems of $U$. This is equivalent to the fact that not all elements are comparable, as $\preceq$ is merely a mapping denoting a relationship between two elements; there is no guarantee of its existence (unless in the case of composition, as mentioned in its definition).
+	
+	By listing all possible systems of $U$ and representing $preceq$ with arrows, we obtain a \emph{Hasse diagram}:
+	\begin{equation*}\begin{tikzcd}
+		{} & \{\{A, B, C\}\} \ar[dl] \ar[d] \ar[dr] \\
+		\{\{A, C\}, \{B\}\} & \{\{A, B\}, \{C\}\} & \{\{A\}, \{B, C\}\} \\
+		{} & \{\{A\}, \{B\}, \{C\}\} \ar[ul] \ar[u] \ar[ur]
+	\end{tikzcd}\end{equation*}
+	
+	Note that in $P \lor Q$, $P \preceq (P \lor Q)$ and $Q \preceq (P \lor Q)$. Interestingly, for any system $R$, $P \preceq R$ and $Q \preceq R$ implies that $(P \lor Q) \preceq R$. From the above diagram, we can conclude the formal definition of join:
+	\begin{defn}
+		A joined system $P \lor Q$ is the smallest system that is bigger than both $P$ and $Q$, and thereby satisfies:
+		\begin{itemize}
+			\item $P \preceq (P \lor Q)$
+			\item $Q \preceq (P \lor Q)$
+			\item $P \preceq R,\ Q \preceq R \iff (P \lor Q) \preceq R$
+		\end{itemize}
+	\end{defn}
+	
+	There is also an order on the boolean values $\mathbb{B} = \{\T, \F\}$: $\F \preceq \T$. In this context, the relationship $\preceq$ can be viewed as the term "implies". The joins of $\mathbb{B}$ are:
+	\begin{align*}
+		\T \lor \T &= \T \\
+		\T \lor \F &= \T \\
+		\F \lor \T &= \T \\
+		\F \lor \F &= \F
+	\end{align*}
+	
+	Note the similarity with the logical operator "or".
+	The relationship $P \preceq Q$ is preserved over the aforementioned observation $\Phi$: $\Phi(P) \lor \Phi(Q) \preceq \Phi(P \lor Q)$.
+	
+	\subsubsection{Partitions and Equivalence}
+	
+	The partition of a set is useful in denoting a relationship between elements of the set, such as a closure under certain conditions. Formally, the definition of a partition is:
+	\begin{defn}
+		A partition of $A$ is a set $P$, where each element $A_p$ is a subset of $A$, satisfying:
+		\begin{itemize}
+			\item $A = \bigcup_{p \in P} A_p$
+			\item $p \neq q \Rightarrow A_p \cap A_q = \varnothing$
+		\end{itemize}
+	\end{defn}
+	
+	
 	
 \end{document}
