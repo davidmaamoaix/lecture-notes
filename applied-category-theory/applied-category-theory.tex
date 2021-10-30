@@ -28,7 +28,7 @@
 	
 	A central focus of category theory is the abstraction of mathematical structures and their relationships. In particular, a mapping is a crucial structure in category theory that represents an abstracted relationship between two objects. A mapping $f: X \to Y$ denotes a relationship of $X$ with $Y$.
 	
-	Notice the denotational resemblance of mappings to functions, which uses $f: X \to Y$ to denote a transformation from members of $X$ to members of $Y$ (i.e. a member of the dependent product formed over the constant dependent type $\prod_{(\_:A)}B$). However, in the scope of category theory, abstraction is imperative for the sake of generalizability, and therefore we do not limit mappings to represent concrete structures of transformation between objects. Such pattern of lacking concreteness is common among structures related to category theory and abstract algebra (oMg it literally has the word "abstract" in its name what were you expecting you dum dum).
+	Notice the notational resemblance of mappings to functions, which uses $f: X \to Y$ to denote a transformation from members of $X$ to members of $Y$ (i.e. a member of the dependent product formed over the constant dependent type $\prod_{(\_:A)}B$). However, in the scope of category theory, abstraction is imperative for the sake of generalizability, and therefore we do not limit mappings to represent concrete structures of transformation between objects. Such pattern of lacking concreteness is common among structures related to category theory and abstract algebra (oMg it literally has the word "abstract" in its name what were you expecting you dum dum).
 	
 	\begin{defn}
 		A \emph{mapping} $f: X \to Y$ is an observation of $X$ via the relationship it has with $Y$, conforming to:
@@ -114,12 +114,28 @@
 	
 	The partition of a set is useful in denoting a relationship between elements of the set, such as a closure under certain conditions. Formally, the definition of a partition is:
 	\begin{defn}
-		A partition of $A$ is a set $P$, where each element $A_p$ is a subset of $A$, satisfying:
+		A \emph{partition} of $A$ is a set $P$, where each element $A_p$ is a nonempty subset of $A$, satisfying:
 		\begin{itemize}
 			\item $A = \bigcup_{p \in P} A_p$
 			\item $p \neq q \Rightarrow A_p \cap A_q = \varnothing$
 		\end{itemize}
 	\end{defn}
+	\begin{defn}
+		An \emph{equivalence relation} on set $A$ is a binary relation $\sim$ that satisfies the following:
+		\begin{itemize}
+			\item \textbf{Reflexivity}: $\forall a \in A,\ a \sim a$
+			\item \textbf{Symmetry}: $a \sim b \iff b \sim a$
+			\item \textbf{Transitivity}: $a \sim b,\ b \sim c \Rightarrow a \sim c$
+		\end{itemize}
+	\end{defn}
+	
+	There exists a bijection between all partitions of a set $A$ and the equivalence relations on $A$.
+	
+	Observe that a equivalence relation $a \sim b$ can be defined as $a \in A_p$ and $b \in A_p$ given a partition $P$. In other words, $a$ is equivalent to $b$ if they are elements of the same part of a given partition. This satisfies the reflexivity ($a$ is always in the part as itself), symmetry and transitivity axioms.
+	
+	Dually, given an equivalence relation $\sim$ on set $A$, the set of transitive closures of $A$ in terms of $\sim$ forms a partition.
+	
+	\subsubsection{Preorders}
 	
 	
 	
