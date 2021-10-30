@@ -40,8 +40,27 @@
 	
 	\subsection{Introduction to Generative Effects}
 	
-	As mentioned previously, the notions of generative effect and structure preservation do not exist without a bounded context. We shall first construct a simple system to illustrate such ideas.
+	As mentioned, the notions of generative effect and structure preservation do not exist without a bounded context. We shall first construct a simple system to illustrate such ideas.
 	
-	Consider the set $U = \{A, B, C\}$ where a partition of $U$ denotes a transitive closure of elements in $U$. We now defined $\Phi(p)$ as the observation that if elements $A$ and $C$ are connected (potentially through a connection through other elements) in partition $p$.
+	Consider the set $U = \{A, B, C\}$ where a partition of $U$ denotes a transitive closure of elements in $U$. We now defined $\Phi(p)$ as the observation that if elements $A$ and $C$ are connected (potentially through a connection through other elements) in the closure described by partition $p$. Note that in this particular system, there is an isomorphism between two element's connectivity in the closure described by $p$ and their mutual existence in $p$; however, viewing the system in a way that is dependent on such behavior is discouraged, as the partition $p$ and the observation $\Phi$ are  meant to be methods of abstracting the idea of "connections".
+	
+	We then define the joining of two closures. Two points $x$ and $y$ are connected in the closure $\alpha \lor \beta$ is true if and only if there exists a sequence of point $\{z_1, z_2, \dots, z_n\} \in \alpha \cup \beta$ such that:
+	\begin{itemize}
+		\item $x$ is connected to $z_1$
+		\item $z_i$ is connected to $z_{i + 1}$
+		\item $z_n$ is connected to $y$
+	\end{itemize}
+	
+	The above definition of join in our system may sound unnecessary for a system with only $3$ objects, yet it is useful if our system extends with more objects in the future.
+	
+	Now consider $p = \{A, B\}$ and $q = \{B, C\}$. Observe that the observation is false in both closure represented by $p$ and $q$:
+	\begin{align*}
+		\Phi(p) = \text{false}
+		\Phi(q) = \text{false}
+	\end{align*}
+	
+	However, $p \lor q$ connects $A$ and $C$ via the sequence of objects $\{B\} \in p \cup q$, resulting in: $$\phi(p \lor q) = \text{true}$$
+	
+	We observe that the observation $\Phi$ is not preserved over the join operation, i.e. $\Phi$ is inherently lossy with respect to join. This is a simple illustration of a generative effect: a property of a composite system that cannot be observed/determined given only its constituent subsystems.
 	
 \end{document}
