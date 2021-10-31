@@ -2,6 +2,7 @@
 
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{amsthm}
 \usepackage{pgfplots}
 \usepackage{mathtools}
 \usepackage{booktabs}
@@ -16,8 +17,14 @@
 
 \newcommand{\mo}[1]{\lvert #1 \rvert}
 \newcommand{\mos}[1]{\lvert #1 \rvert^2}
+\newcommand{\mov}[1]{\lvert \vec{#1} \rvert}
 \newcommand{\RR}{\mathbb{R}}
 \newcommand{\p}{\partial}
+\newcommand{\iv}[1]{\langle #1 \rangle}
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{ex}{Exercise}
 
 \begin{document}
 	\maketitle
@@ -28,8 +35,83 @@
 	
 	A vector $\vec{v}$ is a mathematical structure that has represents a tuple of direction and magnitude; its elements correspond to the cartesian coordinates of the represented point. A vector $\vec{v} \in \RR^n$ represents a point in n-dimension.
 	
-	The length $\mo{\vec{v}}$ of $\vec{v} \in \RR^n$ is a scalar that represents its magnitude: $$\mo{\vec{v}} = \sqrt{\sum_{i=0}^{n}(\vec{v}_i)^2}$$
+	The length $\mov{v}$ of $\vec{v} \in \RR^n$ is a scalar that represents its magnitude: $$\mov{v} = \sqrt{\sum_{i=0}^{n}(\vec{v}_i)^2}$$
 	
 	Note that a vector does not necessarily have a starting and ending point;  it merely represents an offset in a direction.
+	
+	\subsection{Vector Arithmetic}
+	
+	Multiplying a vector by a scalar scales the individual elements by the scalar:
+	\begin{equation*}
+		\begin{bmatrix}
+			a \\ b
+		\end{bmatrix} * c = 
+		\begin{bmatrix}
+			ac \\ bc
+		\end{bmatrix}
+	\end{equation*}
+	
+	Addition of vectors is element-wise:
+	\begin{equation*}
+	\begin{bmatrix}
+		a \\ b
+	\end{bmatrix} +
+	\begin{bmatrix}
+		c \\ d
+	\end{bmatrix} =
+	\begin{bmatrix}
+		a + c \\ b + d
+	\end{bmatrix}
+	\end{equation*}
+	
+	\subsection{Dot Product}
+	
+	\begin{defn}
+		The dot product of $\vec{a}$ and $\vec{b}$ is the sum of their element-wise product: $$\vec{a} * \vec{b} = \sum_{i=0}^n \vec{a}_i \vec{b}_i$$
+	\end{defn}
+	
+	Geometrically, the product of two vector is the product of their magnitude and the $\cos$ of their angle: $$\vec{a} * \vec{b} = \mo{\vec{a}} \mo{\vec{b}} \cos \theta$$
+	
+	Consider vector $\vec{a} * \vec{a}$, the resulting product should be   $\mov{a}^2$, as $\cos 0$ is $1$. Considering a triangle with angles $a$, $b$ and $c$ with angle $\theta$ opposing side $c$, the above can be deduced from the law of $\cos$: $$\mov{c}^2 = \mov{a}^2 + \mov{b}^2 - 2\mo{a}\mo{b}\cos \theta$$
+	
+	Since $\vec{c} = \vec{a} - \vec{b}$, it can be deduced that:
+	\begin{align*}
+		\mov{c}^2 = \vec{c} * \vec{c} &= (\vec{a} - \vec{b})*(\vec{a} - \vec{b}) \\
+		&= \vec{a} * \vec{a} - \vec{a} * \vec{b} - \vec{b} * \vec{a} + \vec{b} * \vec{b}\\
+		&= \mov{a}^2 + \mov{b}^2 - 2\vec{a}\vec{b}
+	\end{align*}
+	
+	As shown in the last line of the transformation of $\mov{c}^2$, $-2\vec{a}\vec{b} = -2\mov{a}\mov{b} \cos \theta$.
+	
+	\subsection{Applications of Dot Product}
+	
+	Dot product can be used to compute lengths and angles. Consider a $\RR^3$ space with $P = (1, 0, 0)$, $Q = (0, 1, 0)$ and $R = (0, 0, 2)$, the angle $\angle RPQ$ can be found with dot product:
+	\begin{align*}
+		\overrightarrow{PR} * \overrightarrow{PQ} &= \mo{\overrightarrow{PR}} \mo{\overrightarrow{PQ}} \cos \theta \\
+		\cos \theta &= \frac{\overrightarrow{PQ} * \overrightarrow{PR}}{\mo{\overrightarrow{PQ}}\mo{\overrightarrow{PR}}}
+	\end{align*}
+	
+	By plugging in our example, we obtain:
+	\begin{gather*}
+		\cos \theta = \frac{1 + 0 + 0}{\sqrt{2} * \sqrt{5}} = \frac{1}{\sqrt{10}}
+	\end{gather*}
+	
+	Another application of dot product is to determine the orthogonality of two vectors, i.e. when are two vectors $a$ and $b$ perpendicular. Note that the sign of a dot product denotes the directional relation of the two vectors $a$ and $b$ with angle $\theta$:
+	\begin{itemize}
+		\item $\vec{a} * \vec{b} > 0$ if $\theta < 90$
+		\item $\vec{a} * \vec{b} = 0$ if $\theta = 90$
+		\item $\vec{a} * \vec{b} > 0$ if $\theta > 90$
+	\end{itemize}
+	
+	Consider the linear equation $x + 2y + 3z = 0$. The above equation can be written in the form of a dot product:
+	\begin{gather*}
+		\begin{bmatrix}
+			1 \\ 2 \\ 3
+		\end{bmatrix} *
+		\begin{bmatrix}
+			x \\ y \\ z
+		\end{bmatrix} = 0
+	\end{gather*}
+	Therefore, the vector $\iv{x, y, z}$ is perpendicular to $\iv{1, 2, 3}$, making the former a plane, as $\cos \theta = 0$ where $\theta$ is the angle between the two vectors.
 	
 \end{document}
