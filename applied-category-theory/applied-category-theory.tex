@@ -84,8 +84,8 @@
 	
 	By listing all possible systems of $U$ and representing $preceq$ with arrows, we obtain a \emph{Hasse diagram}:
 	\begin{equation*}\begin{tikzcd}
-		{} & \{\{A, B, C\}\} \ar[dl] \ar[d] \ar[dr] \\
-		\{\{A, C\}, \{B\}\} & \{\{A, B\}, \{C\}\} & \{\{A\}, \{B, C\}\} \\
+		{} & \{\{A, B, C\}\} \\
+		\{\{A, C\}, \{B\}\} \ar[ur] & \{\{A, B\}, \{C\}\} \ar[u] & \{\{A\}, \{B, C\}\} \ar[ul] \\
 		{} & \{\{A\}, \{B\}, \{C\}\} \ar[ul] \ar[u] \ar[ur]
 	\end{tikzcd}\end{equation*}
 	
@@ -123,7 +123,7 @@
 	\begin{defn}
 		An \emph{equivalence relation} on set $A$ is a binary relation $\sim$ that satisfies the following:
 		\begin{itemize}
-			\item \textbf{Reflexivity}: $\forall a \in A,\ a \sim a$
+			\item \textbf{Reflexivity}: $\forall a \in A.\ a \sim a$
 			\item \textbf{Symmetry}: $a \sim b \iff b \sim a$
 			\item \textbf{Transitivity}: $a \sim b,\ b \sim c \Rightarrow a \sim c$
 		\end{itemize}
@@ -135,7 +135,54 @@
 	
 	Dually, given an equivalence relation $\sim$ on set $A$, the set of transitive closures of $A$ in terms of $\sim$ forms a partition.
 	
+	Similarly, a partition of set $A$ can be expressed via a surjective function $f: A \to P$, where $P(a)$ denotes the part of the partition containing $a$ for $a \in A$. The pre-images $f^{-1}(p)$ for each $p \in P$ form a partition of $A$.
+	
 	\subsubsection{Preorders}
+	
+	As mentioned in the previous section, an ordering system is a system equipped with an order relation $\preceq$. The formal definition of an order relation is:
+	\begin{defn}
+		A \emph{preorder relation} on a set $A$ is a binary relation (denoted with $\preceq$) on the elements of $A$ that satisfies the following constraints:
+		\begin{itemize}
+			\item \textbf{Reflexivity}: $a \preceq a$ for all $a \in A$
+			\item \textbf{Transitivity}: $a \preceq b,\ b \preceq c \Rightarrow a \preceq c$ for all $a, b, c \in A$
+			\item \textbf{Equivalence}: $a \preceq b,\ b \preceq a \iff a \cong b$
+		\end{itemize}
+	\end{defn}
+	
+	The aforementioned set of booleans $\mathbb{B}$ forms a preorder with the relation $\F \preceq \T$:
+	\begin{equation*}\begin{tikzcd}
+		\T \ar[loop right] \\ \F \ar[u] \ar[loop left]
+	\end{tikzcd}\end{equation*}
+	
+	Observe that a preorder $(A, =)$ can be defined on any set $A$. By defining the preorder relation as $=$, we enforce that a preorder relation $a \preceq b$ only occur when $a = b$. If $a \neq b$ then neither $a \preceq b$ nor $b \preceq a$ holds. A preorder satisfying the above is a \emph{discrete preorder}.
+	
+	The dual of discrete preorder is \emph{codiscrete preorder}, where for any $a, b \in A$ there exist relations $a \preceq b$ and $b \preceq a$. The formal definition of such preorder is a preorder with the total binary relation: $$A \times A \subseteq A \times A$$.
+	
+	\subsubsection{Partial Orders}
+	
+	\emph{Skeletality} refers to the requirement that $a \cong b$ implies $a = b$. A skeletal preorder is a \emph{partially ordered set}:
+	\begin{defn}
+		A \emph{partially ordered set} (poset) is a preorder $A$ with the additional constraint that $\forall a, b \in A.\ a \cong b \iff a = b$.
+	\end{defn}
+	
+	Any discrete order already satisfies the constraint for a partially ordered set as there is no relation mapping between elements.
+	
+	Given the above definitions for orders and their representation in the form of Hasse diagrams, we can formalize the definition of a \emph{graph}:
+	\begin{defn}
+		A \emph{graph} $G = \{V, A, s, t\}$ is an abstract mathematical structure that encapsulates relations between elements. A graph consists of a set of vertices $V$ (often viewed as the elements of a set), a set of arrows $A$ (the relations/mappings between elements) and functions $s: A \to V$ (source function) and $t: A \to V$ (target function).
+	\end{defn}
+	
+	A \emph{path} in a graph $G$ from $v_a$ to $v_b$ ($v_a, v_b \in V_G$) is any (potentially empty) sequence of composing arrows $\{a_1, a_2, \dots, a_n\}$ such that $s_G(a_1) = v_a$ and $t_G(a_n) = v_b$. Note the similarity in arrow composition and mapping composition.
+	
+	Any graph $G$ already establish a preorder relation between its vertices, as the relation can represent the existence of a path between two vertices in the graph, i.e. $a \to_G b \iff a \preceq b$ for $a, b \in V_G$. This satisfies the transitivity law due to the composition of arrows, and satisfies the reflexivity law due to the existence of a $0$-length path between an vertex and itself.
+	
+	A partial order does not enforce the existence of relation between any two objects; a partial order with a relation between any two elements is a \emph{total order}:
+	\begin{defn}
+		A \emph{total order} $A$ is a partial order that satisfies:
+		\begin{itemize}
+			\item For all $a, b \in A$, either $a \preceq b$ or $b \preceq a$. In order words, any two elements in $A$ is comparable.
+		\end{itemize}
+	\end{defn}
 	
 	
 	
