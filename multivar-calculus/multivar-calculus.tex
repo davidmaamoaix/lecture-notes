@@ -114,4 +114,28 @@
 	\end{gather*}
 	Therefore, the vector $\iv{x, y, z}$ is perpendicular to $\iv{1, 2, 3}$, making the former a plane, as $\cos \theta = 0$ where $\theta$ is the angle between the two vectors.
 	
+	\section{Cross Product}
+	
+	To get the component $a_u$ of $\vec{a}$ along unit vector $\vec{u}$:
+	\begin{align*}
+		a_u &= \mov{a}\cos{\theta} \\
+		&= \mov{a}\mov{u}\cos{\theta} \\
+		&= \vec{a} * \vec{u}
+	\end{align*}
+	
+	To get the area of triangle $A$ with two edges denoted as vector $\vec{a}$ and $\vec{b}$ originating from point $O$, the area of $A$ is:
+	\begin{gather*}
+		\text{Area}(A) = \frac{1}{2} \mov{a}\mov{b} \sin \theta
+	\end{gather*}
+	
+	The above could be obtained with dot product considering the complement angle and $\vec{a'}$ as $\vec{a}$ after $90^\circ$ rotation. $\angle a'Oa = \theta'$:
+	\begin{align*}
+		\text{Area}(A) &= \frac{1}{2} \mov{a}\mov{b} \sin \theta \\
+		&= \vec{a'} * \vec{b}
+	\end{align*}
+	
+	\subsection{Rotation of Vectors}
+	
+	Vector $\vec{v} = \iv{a, b}$ after $90^\circ$ rotation gives $\iv{-b, a}$. Similarly, a clockwise rotation of $\vec{v}$ in the clockwise direction gives $\iv{b, -a}$
+	
 \end{document}
