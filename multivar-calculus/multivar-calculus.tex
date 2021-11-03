@@ -123,6 +123,8 @@
 		&= \vec{a} * \vec{u}
 	\end{align*}
 	
+	\subsection{Geometric Interpretation of Determinants}
+	
 	To get the area of triangle $A$ with two edges denoted as vector $\vec{a}$ and $\vec{b}$ originating from point $O$, the area of $A$ is:
 	\begin{gather*}
 		\text{Area}(A) = \frac{1}{2} \mov{a}\mov{b} \sin \theta
@@ -131,11 +133,62 @@
 	The above could be obtained with dot product considering the complement angle and $\vec{a'}$ as $\vec{a}$ after $90^\circ$ rotation. $\angle a'Oa = \theta'$:
 	\begin{align*}
 		\text{Area}(A) &= \frac{1}{2} \mov{a}\mov{b} \sin \theta \\
-		&= \vec{a'} * \vec{b}
+		&= \vec{a'} * \vec{b} \\
+		&= \iv{-a_2, a_1} * \iv{b_1, b_2} \\
+		&= a_1 b_2 - a_2 b_2
 	\end{align*}
+	
+	Note that the result of the above transformation is equivalent to the determinant of the matrix:
+	\begin{equation*}
+	\begin{bmatrix}
+		a_1 & a_2 \\ b_1 & b_2
+	\end{bmatrix}
+	\end{equation*}
+	
+	\subsection{Determinant in $R^3$}
+	
+	The determinant of matrix $A = \iv{\vec{A}, \vec{B}, \vec{C}}^\top$ is:
+	\begin{align*}
+		\mo{A} = a_1
+		\begin{vmatrix}
+			b_2 & b_3 \\ c_2 & c_3
+		\end{vmatrix} - a_2
+		\begin{vmatrix}
+			b_1 & b_3 \\ c_1 & c_3
+		\end{vmatrix} + a_3
+		\begin{vmatrix} 
+			b_1 & b_2 \\ c_1 & c_2
+		\end{vmatrix} 
+	\end{align*}
+	
+	The determinant of matrix $\iv{\vec{a}, \vec{b}, \vec{c}}$ is the volume of the parallelepiped formed by edges $\vec{a}$, $\vec{b}$ and $\vec{c}$.
 	
 	\subsection{Rotation of Vectors}
 	
-	Vector $\vec{v} = \iv{a, b}$ after $90^\circ$ rotation gives $\iv{-b, a}$. Similarly, a clockwise rotation of $\vec{v}$ in the clockwise direction gives $\iv{b, -a}$
+	Vector $\vec{v} = \iv{a, b}$ after $90^\circ$ rotation gives $\iv{-b, a}$. Similarly, a clockwise rotation of $\vec{v}$ in the clockwise direction gives $\iv{b, -a}$.
+	
+	\subsection{Cross Product's Geometric Interpretation}
+	
+	The cross product of $\vec{a}$ and $\vec{b}$ is a vector $\vec{a} \times \vec{b}$. The above cross product can be represented via the "determinant" of the matrix:
+	\begin{equation*}
+	\begin{bmatrix}
+		i & j & k \\ a_1 & a_2 & a_3 \\ b_1 & b_2 & b_3
+	\end{bmatrix}
+	\end{equation*}
+	
+	The coefficients of $i$, $j$ and $k$ are the $x$, $y$ and $z$ component of the resulting vector respectively.
+	
+	Consider the parallelepiped $A$ formed by edges $\vec{a}$, $\vec{b}$ and $\vec{c}$. Its volume is the area of the base scaled by the height $h_A$. We obtain:
+	\begin{align*}
+		\text{Area}(A) &= h_A * \mo{\vec{b} \times \vec{c}} \\
+		&= \left(\vec{a} * \frac{\vec{b} \times \vec{c}}{\mo{\vec{b} \times \vec{c}}}\right) * \mo{\vec{b} \times \vec{c}} \\
+		&= \vec{a} * (\vec{b} \times \vec{c})
+	\end{align*}
+	
+	The above equation can be expanded via the definition of cross product to display its equality with the determinant of $\iv{\vec{a}, \vec{b}, \vec{c}}^\top$.
+	
+	\subsubsection{Right Hand Rule}
+	
+	The right hand rule is stupid. It doesn't work on people who can't tell left from right, like me. Soooooo basically given the cross product $\vec{e} = \vec{a} \times \vec{b}$ where $\vec{e}$ is in the position of poking your eyes out, $\vec{a}$ and $\vec{b}$ are positioned in a counter-clockwise manner.
 	
 \end{document}
