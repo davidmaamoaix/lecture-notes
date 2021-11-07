@@ -191,4 +191,40 @@
 	
 	The right hand rule is stupid. It doesn't work on people who can't tell left from right, like me. Soooooo basically given the cross product $\vec{e} = \vec{a} \times \vec{b}$ where $\vec{e}$ is in the position of poking your eyes out, $\vec{a}$ and $\vec{b}$ are positioned in a counter-clockwise manner.
 	
+	\section{Matrices}
+	
+	First, trivially: $$\vec{a} \times \vec{b} = -\vec{b} \times \vec{a}$$
+	
+	\subsection{Application of Cross Product}
+	
+	Give $p_1$, $p_2$ and $p_3$ in $\RR^3$ aligned along a hyperplane, the equation for the hyperplane $P(x, y, z)$ denotes the condition for $x$, $y$ and $z$ of a new given point $p$ for it to be contained in the hyperplane.
+	
+	One approach is to consider if the vectors $\overrightarrow{p_1p_3}$, $\overrightarrow{p_1p_2}$ and $\overrightarrow{p_1p}$ are in the same plane. In order words: $$\det(\iv{\overrightarrow{p_1p}, \overrightarrow{p_1p_2}, \overrightarrow{p_1p_3}}) = 0$$.
+	
+	Another approach is to obtain the cross product of $\overrightarrow{p_1p_2}$ and $\overrightarrow{p_1p_3}$, and see if the direction of the resultant vector (normal vector) is perpendicular to $\overrightarrow{p_1p}$. In other words: $$\overrightarrow{p_1p} * (\overrightarrow{p_1p_2} \times \overrightarrow{p_1p_3}) =  0$$
+	
+	\subsection{Linear Relations}
+	
+	Matrices encapsulate linear transformations. This is useful in scenarios such as change of basis, etc.
+	
+	Consider a change of basis from $\iv{x_1, x_2, x_3}$ to $\iv{u_1, u_2, u_3}$:
+	\begin{align*}
+		u_1 &= 2x_1 + 3x_2 + 3x_3 \\
+		u_2 &= 2x_1 + 4x_2 + 5x_3 \\
+		u_3 &= x_1 + x_2 + 2x_3
+	\end{align*}
+	
+	The above transformation can be represented via a matrix:
+	\begin{equation*}
+		\begin{bmatrix}
+			2 & 3 & 3 \\ 2 & 4 & 5 \\ 1 & 1 & 2
+		\end{bmatrix} * \begin{bmatrix}
+			x_1 \\ x_2 \\ x_3
+		\end{bmatrix} = \begin{bmatrix}
+			u_1 \\ u_2 \\ u_3
+		\end{bmatrix}
+	\end{equation*}
+	
+	The product of two matrices $A * X$ is the combinations of dot products between the rows of $A$ and the columns of $X$. Therefore, for dimension $A \in \RR^{m*n}$ and $X \in \RR^{n*o}$, $A*X \in \RR^{m*o}$.
+	
 \end{document}
