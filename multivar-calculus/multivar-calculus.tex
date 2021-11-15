@@ -311,4 +311,44 @@
 		\end{pmatrix}
 	\end{equation*}
 	
+	\section{Equations of Planes}
+	
+	Recall that an equation for a plane is of the form (where $a$, $b$, $c$ and $d$ are constants):
+	\begin{gather*}
+		ax + by + cz = d
+	\end{gather*}
+	
+	To illustrate, consider the equation for a plane through the origin with normal vector $\vec{N} = \iv{1, 5, 10}$. Trivially, for any point $\vec{p}$ to be in the plane of interest, $\vec{N} * \vec{p} = 0$.
+	
+	Similarly, consider the equation for a plane through $P_0 = \iv{2, 1, -1}$ and normal vector $\vec{N} = \iv{1, 5, 10}$, $\overrightarrow{P_0P} * \vec{N} = 0$. In the above case:
+	\begin{align*}
+		& \overrightarrow{P_0P} * \vec{N} = 0 \\
+		\iff & \iv{x - 2, y - 1, z + 1} * \iv{1, 5, 10} = 0 \\
+		\iff & (x - 2) + 5(y - 1) + 10(z + 1) = 0 \\
+		\iff & x + 5y + 10z = -3
+	\end{align*}
+	
+	An easier method to obtain $-3$ is just to plug $P_0 = \iv{2, 1, -1}$ into $x + 5y + 10z$, as $P_0$ acts as the "origin" of the plane.
+	
+	To generalize, in equation $ax + by + cz = d$, $\vec{N} = \iv{a, b, c}$ is a normal vector to the plane described by the above equation.
+	
+	As an example, consider $\vec{v} = \iv{1, 2, -1}$ and the plane described by $x + y + 3z = 5$. One normal vector of the plane is $\vec{N} = \iv{1, 1, 3}$. It is obvious that $\vec{v}$ is not perpendicular to the plane. $\vec{v}$ is perpendicular to $\vec{N}$ since $\vec{N} * \vec{v} = 0$, thus $\vec{v}$ is parallel to the plane.
+	
+	\subsection{Linear Systems}
+	
+	A linear system is essentially a bunch of linear equations:
+	\begin{align*}
+		x + z &= 1 \\
+		x + y &= 2 \\
+		x + 2y + 3z &= 3
+	\end{align*}
+	
+	To find the common solution to the above system is to find a point $p$ that is contained in all three planes described by the above equations.
+	
+	The solution is not as trivial when a plane contains the line formed by the other two planes, then there are infinitely many answers, as there are no constraints restricting the line. Similarly, if all three planes are parallel and overlapping, the result is a plane.
+	
+	There is no solution for a linear system if the planes never intersects.
+	
+	
+	
 \end{document}
