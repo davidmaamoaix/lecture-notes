@@ -349,6 +349,30 @@
 	
 	There is no solution for a linear system if the planes never intersects.
 	
+	As a result of the above phenomenon, $AX = B \iff X = A^{-1}B$ might not be always viable depending on the invertibility of the matrix $A$. A matrix $A$ is only invertible if the determinant of it is not $0$, i.e. $\det(A) \neq 0$, as $$\det(A) = 0 \iff \text{one plane is parallel to the intersection line}$$.
 	
+	\subsection{Homogeneous Case}
+	
+	A homogeneous case of the linear is when $AX = 0$, i.e. each equation is of the form $ax + by + cz = 0$. An obvious solution is $\iv{0, 0, 0}$, referred to as the \emph{trivial solution}. In other words, all the planes passes through the origin, making the origin a solution to the system.
+	
+	If $\det{A} \neq 0$, then the inverse of $A$ can be used to solve for $X$. However, this is not very helpful:
+	\begin{gather*}
+		AX = 0 \iff X = A^{-1}0 \Rightarrow X = \iv{0, 0, 0}
+	\end{gather*}
+	
+	In the case that $\det(A) = 0$, recall that the coefficients of an equation is a normal vector to the plane:
+	\begin{align*}
+		&\det(A) = 0 \\
+		\iff &\det(\vec{N_1}, \vec{N_2}, \vec{N_3}) = 0 \\
+		\iff &\text{$\vec{N_1}$, $\vec{N_2}$ and $\vec{N_3}$ are coplanar}
+	\end{align*}
+	
+	Recall that $\det(\vec{N_1}, \vec{N_2}, \vec{N_3}) = 0$ means the volume of the parallelepiped formed by the three vectors is $0$.
+	
+	Therefore, the solution is the line through $0$ that is perpendicular to $\vec{N_1}$, $\vec{N_2}$ and $\vec{N_3}$ (can be obtained via a simple cross product of the normal vectors). The solution in this case is non-trivial.
+	
+	\subsection{General Case}
+	
+	For linear system $AX = B$, if $\det(A) \neq 0$, then a unique solution exists: $X = A^{-1}B$. If $\det(A) = 0$, then either no solutions or infinitely many solutions. We are not yet able to distinguish between the two cases with what the course has currently covered.
 	
 \end{document}
