@@ -5,10 +5,11 @@
 \usepackage{amssymb}
 \usepackage{indentfirst}
 \usepackage{tikz-cd}
+\usepackage{mathtools}
 
 \theoremstyle{definition}
 \newtheorem{defn}{Definition}[section]
-\newtheorem{ex}{Exercise}
+\newtheorem{ex}{Exercise}[section]
 
 \newcommand{\mo}[1]{\lvert #1 \rvert}
 \newcommand{\mos}[1]{\lvert #1 \rvert^2}
@@ -174,7 +175,7 @@
 	
 	A \emph{path} in a graph $G$ from $v_a$ to $v_b$ ($v_a, v_b \in V_G$) is any (potentially empty) sequence of composing arrows $\{a_1, a_2, \dots, a_n\}$ such that $s_G(a_1) = v_a$ and $t_G(a_n) = v_b$. Note the similarity in arrow composition and mapping composition.
 	
-	Any graph $G$ already establish a preorder relation between its vertices, as the relation can represent the existence of a path between two vertices in the graph, i.e. $a \to_G b \iff a \preceq b$ for $a, b \in V_G$. This satisfies the transitivity law due to the composition of arrows, and satisfies the reflexivity law due to the existence of a $0$-length path between an vertex and itself.
+	Any graph $G$ already establish a preorder relation between its vertices, as the relation can represent the existence of a path between two vertices in the graph, i.e. $a \to_G b \iff a \preceq b$ for $a, b \in V_G$. This satisfies the transitivity law due to the composition of arrows, and satisfies the reflexivity law due to the existence of a $0$-length path between a vertex and itself.
 	
 	A partial order does not enforce the existence of relation between any two objects; a partial order with a relation between any two elements is a \emph{total order}:
 	\begin{defn}
@@ -184,6 +185,22 @@
 		\end{itemize}
 	\end{defn}
 	
+	\subsubsection{Monotone Maps}
 	
+	One significant relationship between preorders is \emph{monotone map}. A monotone map preserves ordering in a way.
+	
+	\begin{defn}
+		A \emph{monotone map} $f: A \to B$ between preorders $(A, \preceq_A)$ and $(B, \preceq_B)$ satisfies:
+		\begin{gather*}
+			\forall x, y \in A.\ x \preceq_A y \Rightarrow f(x) \preceq_B f(y)
+		\end{gather*}
+	\end{defn}
+	
+	As an example, a map $f: \mathbb{N} \to \mathbb{B}$ that maps the upper set of $x \in \mathbb{N}$ to $\T$ and other elements to $\F$ is a monotone map.
+	
+	\begin{ex}
+		The set $\uparrow p \coloneqq \{p'\in P \mid p \preceq p'\}$ is an upper set for any $p \in P$. This can be proven via considering
+	\end{ex}
+
 	
 \end{document}
