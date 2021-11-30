@@ -442,4 +442,29 @@
 		A \emph{cycloid} is formed as the trajectory of a point on a rolling wheel with radius $r$.
 	\end{defn}
 	
+	This poses the problem of determining the position of the given point, $p \in \RR^2$, after rotation $\theta$:
+	\begin{gather*}
+		p(\theta) = \iv{x(\theta), y(\theta)}
+	\end{gather*}
+	
+	For a circle centered around $B$ on the horizontal axis (with point $A$ intersecting with the axis on the circumference), the vector $\overrightarrow{OP}$ (where $P$ is another point on the circumference) can be obtained via:
+	\begin{gather*}
+		\overrightarrow{OP} = \overrightarrow{OA} + \overrightarrow{AB} + \overrightarrow{BP}
+	\end{gather*}
+	
+	Since the wheel is rolling, the arc length on the circumference from $A$ to $P$ is equal to $\mo{\overrightarrow{OA}}$:
+	\begin{gather*}
+		\overrightarrow{OA} = \iv{a \theta, 0}
+	\end{gather*}
+	
+	$\mo{\overrightarrow{AB}}$ is trivial, as its magnitude is simply the radius of the wheel. With regard to the angle $\theta$, we obtain that:
+	\begin{gather*}
+		\overrightarrow{BP} = \iv{-a \sin \theta, -a \cos \theta}
+	\end{gather*}
+	
+	Therefore, we obtain that:
+	\begin{gather*}
+		\overrightarrow{OP} = \iv{a\theta - a \sin \theta, a - a \cos \theta}
+ 	\end{gather*}
+	
 \end{document}
