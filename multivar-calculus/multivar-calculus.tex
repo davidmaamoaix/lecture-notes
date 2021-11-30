@@ -466,5 +466,37 @@
 	\begin{gather*}
 		\overrightarrow{OP} = \iv{a\theta - a \sin \theta, a - a \cos \theta}
  	\end{gather*}
+ 	
+ 	\subsection{Taylor Expansion Approximation}
+ 	
+ 	In order to explore the shape of the trajectory of $P$ (from the above section) around $\theta = 0$, we can utilize the Taylor expansion to estimate the ratio of $\frac{\Delta y}{\Delta x}$. Consider a wheel with radius $1$:
+ 	\begin{align*}
+ 		x(\theta) &= \theta - \sin \theta \\
+ 		y(\theta) &= 1 - \cos \theta
+ 	\end{align*}
+ 	
+ 	Recall the Taylor approximation:
+ 	\begin{gather*}
+ 		\lim_{t \to 0} = f(0) + tf'(0) + \frac{t^2}{2!}f''(0) + \frac{t^3}{3!}f'''(0) + \dots
+ 	\end{gather*}
+ 	
+ 	In our case, we obtain that:
+ 	\begin{align*}
+ 		\sin \theta &= \theta - \frac{\theta^3}{6} \\
+ 		\cos \theta &= 1 - \frac{\theta^2}{2}
+ 	\end{align*}
+ 	
+ 	Plugging back into the original formula, we obtain:
+ 	\begin{align*}
+ 		x(\theta) &\approx \theta - (\theta - \frac{\theta^3}{6}) \approx \frac{\theta^3}{6} \\
+ 		y(\theta) &\approx 1 - (1 - \frac{\theta^2}{2}) \approx \frac{\theta^2}{2}
+ 	\end{align*}
+ 	
+ 	Calculating $y/x$ yields:
+ 	\begin{gather*}
+ 		\frac{y}{x} \approx \frac{\theta^2 / 2}{\theta^3 / 6} \approx \frac{3}{\theta}
+ 	\end{gather*}
+ 	
+ 	The above value approaches $\infty$ as $\theta \to 0$.
 	
 \end{document}
