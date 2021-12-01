@@ -498,5 +498,33 @@
  	\end{gather*}
  	
  	The above value approaches $\infty$ as $\theta \to 0$.
+ 	
+ 	\section{Velocity and Kepler's Second Law}
+	
+	\begin{defn}
+		\emph{Velocity} is the derivative of displacement in respect of time:
+		\begin{gather*}
+			\vec{v} = \frac{d\vec{r}}{dt} = \iv{\frac{dx}{dt}, \frac{dy}{dt}, \frac{dz}{dt}}
+		\end{gather*}
+	\end{defn}
+	
+	In the case of the cycloid (from the previous section), recall that the displacement of point $p$ on the circumference of the wheel ($p = \vec{0}$ initially, when $\theta = 0$) is obtained via:
+	\begin{gather*}
+		\vec{r}(t) = \iv{t - \sin t, 1 - \cos t}
+	\end{gather*}
+	
+	Its velocity vector is obtained by differentiating the function of each axis:
+	\begin{gather*}
+		\vec{v} = \iv{1 - \cos t, \sin t}
+	\end{gather*}
+	
+	Notice that when $t=0$, $\vec{v} = \iv{0, 0}$. This is trivial, as $p$ indeed isn't moving at that instant.
+	
+	To obtain the magnitude of $\vec{v}$, we use Pythagoras theorem:
+	\begin{align*}
+		\mo{\vec{v}} &= \sqrt{(1 - \cos t)^2 + \sin^2 t} \\
+		&= \sqrt{1 - 2 \cos t + \cos^2 t + \sin^2 t} \\
+		&= \sqrt{2 - 2 \cos t}
+	\end{align*}
 	
 \end{document}
