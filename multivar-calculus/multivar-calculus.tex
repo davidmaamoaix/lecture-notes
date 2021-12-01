@@ -22,6 +22,7 @@
 \newcommand{\p}{\partial}
 \newcommand{\iv}[1]{\langle #1 \rangle}
 \newcommand{\adj}{\text{adj}}
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
 
 \theoremstyle{definition}
 \newtheorem{defn}{Definition}[section]
@@ -504,9 +505,11 @@
 	\begin{defn}
 		\emph{Velocity} is the derivative of displacement in respect of time:
 		\begin{gather*}
-			\vec{v} = \frac{d\vec{r}}{dt} = \iv{\frac{dx}{dt}, \frac{dy}{dt}, \frac{dz}{dt}}
+			\vec{v} = \frac{d\vec{r}}{\diff t} = \iv{\frac{\diff x}{\diff t}, \frac{\diff y}{\diff t}, \frac{\diff z}{\diff t}}
 		\end{gather*}
 	\end{defn}
+	
+	\subsection{Velocity}
 	
 	In the case of the cycloid (from the previous section), recall that the displacement of point $p$ on the circumference of the wheel ($p = \vec{0}$ initially, when $\theta = 0$) is obtained via:
 	\begin{gather*}
@@ -526,5 +529,73 @@
 		&= \sqrt{1 - 2 \cos t + \cos^2 t + \sin^2 t} \\
 		&= \sqrt{2 - 2 \cos t}
 	\end{align*}
+	
+	\subsection{Acceleration}
+	
+	\begin{defn}
+		\emph{Acceleration} is the derivative of the velocity vector:
+		\begin{gather*}
+			\vec{a} = \frac{\diff \vec{v}}{\diff \vec{t}}
+		\end{gather*}
+	\end{defn}
+	
+	Still considering the above example of cycloid, we notice that the acceleration of $p$ is $\vec{a} = \iv{\sin t, \cos t}$. At point $t = 0$, notice that the acceleration of $p$ is $\vec{0, 1}$, which agrees with the result that we obtained via Taylor approximation.
+	
+	\subsection{Arc Length}
+	\begin{defn}
+		The \emph{arc length} is the distance traveled along the curve. In the example above (cycloid), the arc length is simply the portion of the circumference which $p$ has traveled.
+	\end{defn}
+	
+	To relate arc length $s$ to time $t$, notice the relation that the rate of change of arc length is the speed at which the point is moving. Therefore, to obtain the arc length (circumference) of the trajectory of point $p$ with a given function describing $p$'s displacement, we simple integrate the magnitude of the speed (which is equivalent to $\vec{v}$'s magnitude):
+	\begin{gather*}
+		\int_0^{2\pi}\sqrt{2 - 2 \cos t}\ \diff t
+	\end{gather*}
+	
+	\subsection{Unit Tangent Vector}
+	
+	\begin{defn}
+		A \emph{unit tangent ventor} $\hat{T}$ is the normalized tangent at a given point on the function:
+		\begin{gather*}
+			\hat{T} = \frac{\vec{v}}{\mo{\vec{v}}}
+		\end{gather*}
+	\end{defn}
+	
+	Notice that (where $s$ denotes the speed of $p$):
+	\begin{gather*}
+		\vec{v} = \frac{\diff \vec{r}}{\diff t} = \frac{\diff \vec{r}}{\diff s}\frac{\diff s}{\diff t}
+	\end{gather*}
+	
+	Therefore, it is trivial that:
+	\begin{align*}
+		\mo{\vec{v}} &= \frac{\diff s}{\diff t} \\
+		\hat{T} &= \frac{\diff s}{\diff t}
+	\end{align*}
+	
+	\subsection{Kepler's Second Law}
+	
+	Kepler's second law is a good example for exploring the motivation for analyzing motions with vectors. Kepler's laws are about generalizing the motion of planets orbiting a central sun in an ellipse.
+	
+	\begin{defn}
+		\emph{Kepler's second law} states that the planar motion of an orbiting planet satisfies that the rate of the area swept out by the line from the sun to the planet as the planet orbits is constant. 
+	\end{defn}
+	
+	In terms of vectors, consider the position vector $\vec{r}$ originating from the sun to the planet. $\Delta r$ is the planet's change in displacement over $\Delta t$.
+	
+	Since $\Delta r$ is sufficiently small, we can consider the area of the sector as a triangle enclosed by $\vec{r_1}$, $\vec{r_2}$ and $\Delta \vec{r}$. The area of the sector is then given by (recall that $\Delta \vec{r} = \vec{v} \Delta t$):
+	\begin{align*}
+		\text{Area} &\approx \frac{1}{2} \mo{\vec{r} \times \Delta \vec{r}} \\
+		& \approx \frac{1}{2} \mo{\vec{r} \times \vec{v}} \Delta t
+	\end{align*}
+	
+	Therefore, Kepler's second law is equivalent to stating that $\vec{r} \times \vec{v}$ is constant, and therefore has a derivative of $0$ in respect to $t$:
+	\begin{align*}
+		&\frac{\diff}{\diff t} (\vec{r} \times \vec{v}) = 0 \\
+		\iff &\frac{\diff \vec{r}}{\diff t} \times \vec{v} + \vec{r} \times \frac{\diff v}{\diff t} = 0 \\
+		\iff &\vec{v} \times \vec{v} + \vec{r} \times \vec{a} = 0 \\
+		\iff &0 + \vec{r} \times \vec{a} = 0 \\
+		\iff &\vec{r} \times \vec{a} = 0
+	\end{align*}
+	
+	Therefore, Kepler's second law is stating that the acceleration vector is parallel to the change of position in the orbit.
 	
 \end{document}
