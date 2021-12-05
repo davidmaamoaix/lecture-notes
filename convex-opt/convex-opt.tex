@@ -126,4 +126,21 @@
 		\end{enumerate}
 	\end{defn}
 	
+	\subsection{Optimization Problem}
+	
+	\begin{defn}
+		Any optimization problem can be rewritten as the following:
+		\begin{align*}
+			&\min_{x \in D} f(x) \\
+			\st &g_i(x) \leq 0,\ i = 0, \dots, m \\
+			& h_j(x) = 0,\ j = 0, \dots, r
+		\end{align*}
+		where $D$ is the common domain of the three functions:
+		\begin{gather*}
+			D = \dom(f) \cap \bigcap_{i=1}^m dom(g_i) \cap \bigcap_{j=1}^r dom(h_j)
+		\end{gather*}
+	\end{defn}
+	
+	A convex problem is an optimization problem such that $f$ (the criterion) and all $g$ (constraints) are convex functions, and all $h$ are affine functions.
+	
 \end{document}
