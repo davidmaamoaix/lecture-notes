@@ -38,5 +38,92 @@
 	
 	\section{Introduction}
 	
+	Optimization is the act of minimizing (or maximizing) a function while conforming to certain constraints.
+	
+	\subsection{Examples of Optimization Problems}
+	
+	Examples of \emph{regressions}:
+	\begin{itemize}
+		\item least squares: \begin{gather*}
+			\min_\beta \sum_{i=1}^n(y_i - x_i^\top \beta)^2
+		\end{gather*}
+		\item least absolute deviations (robust): \begin{gather*}
+			\min_\beta \sum_{i=1}^n \mo{y_i - x_i^\top \beta}
+		\end{gather*}
+		\item lasso (with constraints): \begin{gather*}
+			\min_\beta \sum_{i=1}^n(y_i - x_i^\top \beta)^2 \\\text{s.t.} \sum_j^m |\beta_j| \le t
+		\end{gather*}
+		\end{itemize}
+		
+	Examples of \emph{classifications}:
+	\begin{itemize}
+		\item logistic regressions
+		\item range Loss (SVMs)
+	\end{itemize}
+	
+	Others:
+	\begin{itemize}
+		\item traveling salesman
+		\item planning/discrete optimizations
+		\item MLE
+	\end{itemize}
+	
+	The following problems are \textbf{not} optimization problems, as their output isn't simple optimal in respect to some criteria:
+	\begin{itemize}
+		\item boosting
+		\item ensembles (e.g. random forest)
+		\item CV
+	\end{itemize}
+	
+	\subsubsection{Example: 2D Fused Lasso}
+	2D fused lasso, or 2D total variation de-noising, fits a piecewise constant function over an image ($\lambda$ is a hyper-parameter to determine the penalty, and $E$ is the set of edges from a pixel $i$ to all adjacent pixels $j$):
+	\begin{gather*}
+		\min_\theta \frac{1}{2} \sum_{i=1}^n (y_i - \theta_i) ^ 2  + \lambda \sum_{(i, j) \in E} |\theta_i - \theta_j|
+	\end{gather*}
+	
+	Some methods to approach the 2D fused lasso problem (details on algorithms later):
+	\begin{itemize}
+		\item Specialized Alternating Direction Method of Multipliers (ADMM): fast (structured subproblem)
+		\item Proximal Gradient: slow (poor conditioning)
+		\item Coordinate Descent: slow (large active set)
+	\end{itemize}
+	
+	\textbf{Conclusion}: different algorithms work better in different optimization problems.
+	
+	\subsubsection{Example: 1D Fused Lasso}
+	
+	1D fused lasso is similar to its 2D equvalent:
+	\begin{gather*}
+		\min_\theta \frac{1}{2} \sum_{i=1}^n (y_i - \theta_i) ^ 2  + \lambda \sum_{i=1}^{n - 1} |\theta_i - \theta_{i + 1}|
+	\end{gather*}
+	
+	Trivially, as $\lambda$ decreases, more change points appear. We tune $\lambda$ to fit the more significant change points.
+	
+	\subsection{Convexity}
+	
+	Convexity is an attribute of a function or set.
+	
+	\begin{defn}
+		$C$ is a \emph{convex set} if:
+		\begin{gather*}
+			\forall x, y \in C\ldotp t \in [0, 1] \Rightarrow tx + (1-t) y \in C
+		\end{gather*}
+	\end{defn}
+	
+	An example of a convex set is the set of points in a convex shape.
+	
+	\begin{defn}
+		A \emph{convex function} is a function that:
+		\begin{enumerate}
+			\item has a convex domain:
+			\begin{gather*}
+				f: \RR^n \to \RR \Rightarrow \dom(f) \in \RR^n\ \text{is convex}
+			\end{gather*}
+			\item any value on the function is less than or equal to the linear equation joined by any two surrounding points:
+			\begin{gather*}
+				f(tx + (1 - t)y) \le tf(x) + (1 - t)f(y)
+			\end{gather*}
+		\end{enumerate}
+	\end{defn}
 	
 \end{document}
