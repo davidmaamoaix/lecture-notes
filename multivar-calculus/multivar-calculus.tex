@@ -598,6 +598,60 @@
 	
 	Therefore, Kepler's second law is stating that the acceleration vector is parallel to the change of position in the orbit.
 	
+	\section{Multivariable Functions}
 	
+	A multivariable function is a function that takes in multiple parameters. An example would be $f(x, y) = x^2 + y^2$.
 	
+	Similar to a regular function, a multivariable function can have a domain:
+	\begin{align*}
+		f(x, y) &= \sqrt{y},\ y \geq 0 \\
+		f(x, y) &= \frac{1}{x + y},\ x + y \neq 0
+	\end{align*}
+	
+	The visualization of such functions can be a bit tricky. Consider the case of a 2-variable function, its graph can be plotted in an $\RR^3$ space where the height at $(x, y)$ is $f(x, y)$.
+	
+	Consider the function $f(x, y) = 1 - x^2 - y^2$. To plot a graph for this function, consider the graph on the individual xz-plane and yz-plane (i.e. when the other axis is at $0$). This will result in $z = 1 - x^2$ and $z = 1 - y^2$ respectively.
+	
+	Note that the shape of the intersection of function $f(x, y) = 1 - x^2 - y^2$ on the xy-plane can be obtained via setting the value on the z-axis to $0$, i.e.:
+	\begin{align*}
+		&1 - x^2 - y^2 = 0 \\
+		\iff &x^2 + y^2 = 0
+	\end{align*}
+	
+	Thus, the intersection is a unit circle.
+	
+	\subsection{Contour Graph}
+	
+	A contour graph is a slice of the graph of a 2-variable function by a horizontal plane. Each section in a contour map represents ab area of (approximately) same height.
+	
+	Consider the contour plot for function $f(x, y) = 1 - x^2 - x^2$, its contour plot consists of various circles around the origin. The density of circles increases the further away from the origin, indicating an increase in the slope of the function (as less distance for a change of $1$ in height).
+	
+	\subsection{Derivatives}
+	
+	In a regular function $f(x)$, the derivative of $f(x)$ is its change in respect to $x$, namely:
+	
+	\begin{equation*}
+		\lim_{h \to 0} \frac{f(x + h) - f(x)}{h}
+	\end{equation*}
+	
+	In other words, the derivative of a function is a function of its slope.
+	
+	\subsection{Linear Approximation Formula}
+	
+	To approximate $f(x)$ when given $f(x_0)$ where $x_0$ is a value close to $x$, the value $f(x)$ can be approximated via $f(x)$'s first derivative:
+	
+	\begin{equation*}
+		f(x) = f(x_0) + f'(x_0) * (x - x_0)
+	\end{equation*}
+	
+	\subsection{Partial Derivatives}
+	
+	With a function with more than one parameter, a derivative can be taken with respect to any one parameter. This can be interpreted as the change in the output value in respect to a change in one of its parameter.
+	
+	For example, consider a 2-variable function $f(x, y)$. Its partial derivative in respect to $x$ is defined as:
+	
+	\begin{equation*}
+		\frac{\partial f}{\partial x}(x, y) = \lim_{h \to 0} \frac{f(x + h, y) - f(x, y)}{h}
+	\end{equation*}
+		
 \end{document}
