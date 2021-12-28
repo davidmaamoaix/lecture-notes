@@ -629,7 +629,6 @@
 	\subsection{Derivatives}
 	
 	In a regular function $f(x)$, the derivative of $f(x)$ is its change in respect to $x$, namely:
-	
 	\begin{equation*}
 		\lim_{h \to 0} \frac{f(x + h) - f(x)}{h}
 	\end{equation*}
@@ -639,7 +638,6 @@
 	\subsection{Linear Approximation Formula}
 	
 	To approximate $f(x)$ when given $f(x_0)$ where $x_0$ is a value close to $x$, the value $f(x)$ can be approximated via $f(x)$'s first derivative:
-	
 	\begin{equation*}
 		f(x) = f(x_0) + f'(x_0) * (x - x_0)
 	\end{equation*}
@@ -649,11 +647,29 @@
 	With a function with more than one parameter, a derivative can be taken with respect to any one parameter. This can be interpreted as the change in the output value in respect to a change in one of its parameter.
 	
 	For example, consider a 2-variable function $f(x, y)$. Its partial derivative in respect to $x$ is defined as:
-	
-	\begin{equation*}
+	\begin{gather*}
 		\frac{\partial f}{\partial x}(x, y) = \lim_{h \to 0} \frac{f(x + h, y) - f(x, y)}{h}
-	\end{equation*}
+	\end{gather*}
 	
 	This can be interpreted similar to the "slice by a plane" analogy used previously when describing contour graphs. To differentiate in respect to $x$ is to consider the change in the hyperplane of all other axis when $x$ changes (e.g. the change in the yz-plane when $x$ moves in $f(x, y)$).
+	
+	\section{Partial Derivatives and Tangents}
+	
+	As mentioned previously, a 2-variable function $f(x, y)$ has two derivatives each in the direction of an axis.
+	
+	Consider its tangent line $L_x$; if $\frac{\partial f}{\partial x}(x_0, y_0) = a$, then the line is described by $y = y_0$ and $z = z_0 + a(x - x_0)$.
+	
+	Similarly, the tangent line $L_y$ being described by $\frac{\partial f}{\partial y}(x_0, y_0) = b$ is the line specified by $x = x_0$ and $z = z_0 + b(y - y_0)$.
+	
+	$L_x$ and $L_y$ are both tangent to the graph $f(x, y)$, and determines the plane
+	\begin{gather*}
+		z = z_0 + a(x - x_0) + b(y - y_0)
+	\end{gather*}
+	
+	Note that by fixing either $x$ or $y$ in the above equation, the tangent for $y$ and $x$ is obtained respectively. The above plane is the tangent plane of $f$ at a given point $(x, y)$.
+	
+	\subsection{Minima and Maxima}
+	
+	If a given point $(x, y)$ is the local minimum or maximum, then its derivative in either direction is $0$. 
 		
 \end{document}
