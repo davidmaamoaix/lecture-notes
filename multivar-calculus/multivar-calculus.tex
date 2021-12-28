@@ -696,6 +696,29 @@
 		&= ((x - y) + 1)^2 + 2y^2 - 1
 	\end{align*}
 	
-	In this form, it is trivial to identify the minimum of $f$. Since both $((x - y) + 1)^2$ and $2y^2$ are squares, their minimum value is $0$, thus the minimum of $f$ is $0 - 1 = -1$. However such an approach is obviously not feasible for all functions.
+	In this form, it is trivial to identify the minimum of $f$. Since both $((x - y) + 1)^2$ and $y^2$ are squares, their minimum value is $0$, thus the minimum of $f$ is $0 - 1 = -1$. However such an approach is obviously not feasible for all functions.
+	
+	\subsection{Application of Minimum/Maximum}
+	
+	Least-square interpolation is to find the best fit line given a set of data. The following example considers a 2D dataset of points $(x, y)$ and fits the line $y = mx + b$.
+	
+	The loss function can be interpreted as how bad a line fits the data, and the aim of least-square interpolation is to minimize the loss function. This is simply a sum of the square of deviations for each point in the dataset:
+	\begin{gather*}
+		\min_{m, b} \sum^n_{i=1} [y_i - (mx_i + b)]^2
+	\end{gather*}
+	
+	To minimize such a function, we can identify its critical point by taking the function's partial derivatives in respect to $m$ and $b$ (where $L$ is the loss function):
+	\begin{align*}
+		\frac{\partial L}{\partial m} &= \sum^n_{i=1} [2 * (y_i - (mx_i + b)) * (-x_i)] \\
+		\frac{\partial L}{\partial b} &= \sum^n_{i=1} [2 * (y_i - (mx_i + b)) * (-1)]
+	\end{align*}
+	
+	To obtain the critical point of the loss function, we find $m$ and $b$ such that both derivatives is zero. With some reordering:
+	\begin{align*}
+		\sum^n_{i=1} \left(mx^2_i + bx_i - x_iy_i \right) = 0 &\iff \left(\sum^n_{i=1}x^2_i \right)m + \left(\sum^n_{i=1}x_i \right) b = \sum^n_{i=1}x_iy_i\\
+		\sum^n_{i=1} (mx_i + b - y_i) = 0 &\iff \left(\sum^n_{i=1} x_i\right)m + nb = \sum^n_{i=1} y_i
+	\end{align*}
+	
+	The above is simply a linear system.
 	
 \end{document}
