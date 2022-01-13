@@ -721,4 +721,38 @@
 	
 	The above is simply a linear system.
 	
+	\section{Global Maximum/Minimum}
+	
+	Recall that a critical point is a point where the tangent plane is horizontal. This could be a local minimum, local maximum, or saddle point.
+	
+	To obtain the global min/max, however, requires more information about the function, such as how it behaves at $\infty$ (or its boundary). Note that the global min/max can only occur at either a critical point or on the function's boundary (or $\infty$ for an unbounded function).
+	
+	Similar to a single variable function, the second derivative can be used to gain more observations of the behaviors of the function.
+	
+	\subsection{Second Derivative Test}
+	
+	Consider the function $w = a^2 + bxy + cy^2$. This function has a critical point at the origin. With a linear approximation by plugging in a sufficiently small $x$ or $y$ value, it can be observed that the tangent plane at the origin is indeed horizontal.
+	
+	Recall the example from last lecture $w = x^2 + 2xy + 3y^2$. This can be rewritten as $w = (x + y)^2 + 2y^2$. Being the sum of two squares, the origin would be a minimum as both terms are non-negative.
+	
+	Similarly, such a method can be applied to the generalized $w = a^2 + bxy + cy^2$ (where $a \neq 0$):
+	\begin{align*}
+		w &= a(x^2 + \frac{b}{a}xy) + cy^2 \\
+		&= a(x + \frac{b}{2a}y)^2 + (c - \frac{b^2}{4a})y^2 \\
+		&= \frac{1}{4a}[4a^2(x+\frac{b}{2a}y)^2 + (4ac-b^2)y^2]
+	\end{align*}
+	
+	This is yet another a sum of two squares, and therefore it can be observed that going in any direction from the origin results in an increase in height, thus concluding that the origin is the minimum.
+	
+	\subsection{Cases of Quadratics}
+	
+	Considering the above form of sum of two squares for quadratics, there are three cases of quadratic functions:
+	\begin{enumerate}
+		\item $4ac - b^2 < 0$: The first term would be $\geq 0$, while the second term would be $\leq 0$. Therefore, the critical point of this quadratic is a saddle point.
+		\item $4ac - b^2 = 0$: The second term would be $0$, thus the height along the $y$-axis would be $0$. In other words, the entire $y$-axis would be critical points. This is referred to as the degenerate critical point.
+		\item $4ac - b^2 > 0$: The equation would simply be the sum of two squares, and therefore the behavior of the function is dependent on the sign of $a$ as it dictates the sign of the function. If $a > 0$, the function would be increasing in all directions from the origin, thereby making it a minimum. Dually, if $a < 0$, the origin would be a maximum.
+	\end{enumerate}
+	
+	
+	
 \end{document}
