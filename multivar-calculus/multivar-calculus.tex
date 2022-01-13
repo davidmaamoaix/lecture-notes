@@ -749,10 +749,40 @@
 	Considering the above form of sum of two squares for quadratics, there are three cases of quadratic functions:
 	\begin{enumerate}
 		\item $4ac - b^2 < 0$: The first term would be $\geq 0$, while the second term would be $\leq 0$. Therefore, the critical point of this quadratic is a saddle point.
-		\item $4ac - b^2 = 0$: The second term would be $0$, thus the height along the $y$-axis would be $0$. In other words, the entire $y$-axis would be critical points. This is referred to as the degenerate critical point.
+		\item $4ac - b^2 = 0$: The second term would be $0$, thus the height along a certain direction would be $0$. In other words, the entire axis would be critical points. This is referred to as the degenerate critical point.
 		\item $4ac - b^2 > 0$: The equation would simply be the sum of two squares, and therefore the behavior of the function is dependent on the sign of $a$ as it dictates the sign of the function. If $a > 0$, the function would be increasing in all directions from the origin, thereby making it a minimum. Dually, if $a < 0$, the origin would be a maximum.
 	\end{enumerate}
 	
+	Note the resemblance of $4ac - b^2$ to the discriminant $\Delta = b^2 - 4ac$. Recall the $w$ function $w = ax^2 + bxy + cy^2$. It can be reordered as:
+	\begin{gather*}
+		w = y^2 [a(\frac{x}{y})^2 + b(\frac{x}{y})+ c]
+	\end{gather*}
 	
+	If $\Delta > 0$, then there exists multiple solutions, thereby the result of $w$ spans both the $> 0$ space and the $< 0$ space (as the function crosses w = 0). Therefore, the critical point of $w$ is a saddle point.
+	
+	If $\Delta < 0$, then there is no intersection of the function with the $w = 0$ plane. In this case, the function is either always positive or always negative depending on the sign of $a$. Therefore, the critical point is either a maximum or a minimum.
+	
+	\subsection{Generalized Case}
+	
+	For a generic function, a similar analysis method can be incorporated by observing its second derivatives.
+	
+	For simplicity, another symbol for the second derivative of a function $f$ is:
+	\begin{gather*}
+		f_{xy} = \frac{\partial^2 f}{\partial x \partial y}
+	\end{gather*}
+	
+	Note that the order of taking the derivatives does not matter. In other words, $f_{xy} = f_{yx}$.
+	
+	Thus, we can conclude that for a two-variable function, there are three second derivatives: $f_{xx}$, $f_{xy}$ (= $f_{yx}$), and $f_{yy}$.
+	
+	\begin{defn}
+		The \emph{second derivative test} states that at a critical point $p = (x_0, y_0)$ of function $f$, then there are four cases to consider:
+		\begin{enumerate}
+			\item $f_{xx}(p) * f_{yy}(p) - f_{xy}(p)^2 > 0$ and $f_{xx}(p) > 0$: The critical point is a local minimum.
+			\item $f_{xx}(p) * f_{yy}(p) - f_{xy}(p)^2 > 0$ and $f_{xx}(p) < 0$: The critical point is a local maximum.
+			\item $f_{xx}(p) * f_{yy}(p) - f_{xy}(p)^2 < 0$: The critical point is a saddle point.
+			\item $f_{xx}(p) * f_{yy}(p) - f_{xy}(p)^2 = 0$: Cannot conclude.
+		\end{enumerate}
+	\end{defn}
 	
 \end{document}
