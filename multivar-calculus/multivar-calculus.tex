@@ -785,4 +785,63 @@
 		\end{enumerate}
 	\end{defn}
 	
+	To verify, consider the special case $w = ax^2 + bxy + cy^2$ mentioned above. Its first order derivatives are:
+	\begin{align*}
+		w_x &= 2ax + by \\
+		w_y &= bx + 2cy
+	\end{align*}
+	
+	By further differentiation, we obtain:
+	\begin{align*}
+		w_{xx} &= 2a \\
+		w_{xy} &= b\\
+		w_{yy} &= 2c
+	\end{align*}
+	
+	Thus, $f_{xx}(p) * f_{yy}(p) - f_{xy}(p)^2$ is $4ac - b^2$ in this case. By considering the different cases above, it can be observed that this special case indeed satisfies the rules described above.
+	
+	\subsection{Quadratic Approximation}
+	
+	Consider the function $f(x, y)$, the change in $f$ as $x$ or $y$ changes a little bit should be able to be approximated by:
+	\begin{gather*}
+		\Delta f \approx f_x * (x - x_0) + f_y * (y - y_0)
+	\end{gather*}
+	
+	However, note that $\Delta f = 0$ at critical points. To better approximate the function, its second derivative can be considered:
+	\begin{align*}
+		f &\approx f_x * (x - x_0) + f_y * (y - y_0) \\
+		&+ \frac{1}{2} f_{xx} * (x - x_0)^2 + f_{xy} (x - x_0)(y - y_0) \\
+		&+ \frac{1}{2} f_{yy} * (y - y_0)^2
+	\end{align*}
+	
+	To acquire a more accurate approximation, the function's higher order derivatives can be considered. However, the current second order approximation reduces the generalized $f$ to a quadratic function. Note that the coefficients of the quadratic terms correspond to the $a$, $b$ and $c$ terms in a quadratic as mentioned before, yet scaled by $\frac{1}{2}$.
+	
+	In the degenerate case, however, the above approximation formula is only reasonable only if the higher order terms are negligible. Since in a non-degenerate case, the shape of the formula is determined by the quadratic terms, yet in the degenerate case, a small shift in the critical point axis can alter the shape of the function such that the critical point is a minimum/maximum, thus not qualifying as the degenerate case. In other words, what happens in the degenerate case depends on higher order derivatives (this will not be covered in this class, so we refer to it as "cannot conclude" at the moment).
+	
+	For example, consider the function where $x, y > 0$:
+	\begin{gather*}
+		f(x, y) = x + y + \frac{1}{xy}
+	\end{gather*}
+	
+	To obtain the critical points for the above function, we compute the first derivative:
+	\begin{align*}
+		f_x &= 1 - \frac{1}{x^2y} \\
+		f_y &= 1 - \frac{1}{xy^2}
+	\end{align*}
+	
+	The equation for the critical point(s) become:
+	\begin{align*}
+		x^2y = 1 \\
+		xy^2 = 1
+	\end{align*}
+	
+	Thus $x=1$ and $y=1$, at which point the second derivatives of $f$ is:
+	\begin{align*}
+		f_{xx} &= \frac{2}{x^3y} \\
+		f_{xy} &= \frac{1}{x^2y^2} \\
+		f_{yy} &= \frac{2}{xy^3}
+	\end{align*}
+	
+	By computing $AC - B^2$, we obtain that $(1, 1)$ is either a local minimum or maximum. Since $A > 0$ (or $f_{xx} > 0$), the value of the function as $x$ approaches $\infty$ is $\infty$, thus $f(1, 1)$ is a local minimum.
+	
 \end{document}
