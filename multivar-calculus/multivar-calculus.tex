@@ -844,6 +844,29 @@
 	
 	By computing $AC - B^2$, we obtain that $(1, 1)$ is either a local minimum or maximum. Since $A > 0$ (or $f_{xx} > 0$), the value of the function as $x$ approaches $\infty$ is $\infty$, thus $f(1, 1)$ is a local minimum.
 	
+	\section{Differentials and Chain Rule}
+	
+	Consider $y = \sin^{-1}(x)$. When written in terms of $y$ we obtain $x = \sin(y)$. From implicit differentiation, it can be obtained that $\diff x = cos(y) \diff y$, and via algebra we obtain that:
+	\begin{gather*}
+		\frac{\diff y}{\diff x} = \frac{1}{\cos(y)} = \frac{1}{\sqrt{1 - x^2}}
+	\end{gather*}
+	
+	This concept can be extended to functions with multiple parameters.
+	
+	\subsection{Total Differentials}
+	
+	Consider the function $f(x, y, z)$, then $\diff f = f_x \diff x + f_y \diff y + f_z \diff z$. Note that $\diff f$ is NOT $\Delta f$. $\diff f$ is like a placeholder for input, and when saturated, returns an approximation (linear) of $\diff f$.
+	
+	The uses of total differentials are as follows:
+	\begin{enumerate}
+		\item encodes how changes in the parameter affect $f$
+		\item acts as a placeholder to get an approximation formula $\Delta f \approx f_x \Delta x + f_y \Delta y + f_z \Delta z$
+		\item divide by something to get a rate of change: such as 
+		\begin{gather*}
+			\frac{\diff f}{\diff t} = f_x \frac{\diff f}{\diff x} + f_y \frac{\diff f}{\diff y} + f_z \frac{\diff f}{\diff z}
+		\end{gather*}
+	\end{enumerate}
+	
 	
 	
 \end{document}
