@@ -867,6 +867,40 @@
 		\end{gather*}
 	\end{enumerate}
 	
+	\subsubsection{Justification for Division by Differentials}
 	
+	To justify the third use case, consider $\diff f = f_x \diff x + f_y \diff y + f_z \diff z$. The differential for each component is:
+	\begin{align*}
+		\diff x &= x'(t) \diff t \\
+		\diff y &= y'(t) \diff t \\
+		\diff z &= z'(t) \diff t
+	\end{align*}
+	Therefore $\diff f = f_x * x'(t) \diff t + f_y * y'(t) \diff t + f_z * z'(t) \diff t$. Division by $\diff t$ yields the chain rule.
 	
-\end{document}
+	Another approach for proving the formula is by considering the approximation $\Delta f \approx f_x \Delta x + f_y \Delta y + f_z \Delta z$. Division by $\Delta t$ yields:
+	\begin{gather*}
+		\frac{\Delta f}{\Delta t} \approx \frac{f_x \Delta x + f_y \Delta y + f_z \Delta z}{\Delta t}
+	\end{gather*}
+	
+	This is much more trivial to understand, as $\Delta t$ is simply a scalar value, unlike the differential division in the previous justification method.
+	
+	As $\Delta t$ approaches $0$, $\frac{\Delta f}{\Delta t} \to \frac{\diff f}{\diff t}$, $\frac{\Delta x}{\Delta t} \to \frac{\diff x}{\diff t}$, $\dots$
+	
+	Therefore, the above approximation is reasonable as $\Delta t \to 0$.
+	
+	\subsubsection{Example}
+	
+	Consider the function $w = x^2 y + z$ where $x, y, z \in \RR \to \RR$ are functions of $t$:
+	\begin{align*}
+		x &= t \\
+		y &= e^t \\
+		z &= \sin t
+	\end{align*}
+	
+	The chain rule suggests that:
+	\begin{align*}
+		\frac{\diff w}{\diff t} &= 2xy \frac{\diff x}{\diff t} + x^2 \frac{\diff y}{\diff t} + 1 \frac{\diff z}{\diff t} \\
+		&= 2 * (t * e^t) + t^2 * e^t + \cos t
+	\end{align*}
+	
+	\end{document}
