@@ -127,5 +127,31 @@
  	The above signatures state that "$+$ is a function that accepts two parameters from $\NN$ and returns a value of type $\NN$".
  	
  	Note that the two signatures listed above are equivalent up to isomorphism (over the currying operation). From this observation, it is evident that the arrow $\to$ in function signatures is right-associative.
+ 	
+	In addition to the common function definition, e.g. $f(x, y) = x^2 + y^2$, a function can also be defined in-line with the mapping arrow $\mapsto$, e.g. $(x, y) \mapsto x^2 + y^2$.
+	
+	Given $f : A \to B$ and $g : B \to C$, the function composition $g \circ f : A \to C$ denotes the chaining of $g$ after $f$, i.e. $x \mapsto g(f(x))$.
+	
+	\section{Relations}
+	
+	In academic writing, custom relationships between arbitrary objects are often defined for better elaboration. Such an abstraction is especially prevalent in proofs. This section aims to clarify some common relation definitions and terminologies.
+	
+	\begin{defn}
+		A \emph{preorder} relation on set $A$ is a binary relation that denotes an order over the elements of $A$. A preorder relationship between two objects is denoted as $a \preceq b$ or with a similar operator.
+		
+		A preorder relation $\preceq$ on set $A$ must satisfy the following axioms:
+		\begin{enumerate}
+			\item \textbf{Identity}: $a \preceq a$ for all $a \in A$
+			\item \textbf{Transitivity}: $a \preceq b \land b \preceq c \implies a \preceq c$
+			\item \textbf{Anti-symmetry}: $a \preceq b \land b \preceq a \implies a \cong b$
+		\end{enumerate}
+		where $\cong$ is some notion of equivalence (see below).
+ 	\end{defn}
+ 	
+ 	For example, a preorder can be formed on the set of restaurants near YKPS based on their distance to the school: $a \preceq b$ if the distance to $a$ is less than or equal to that of $b$.
+ 	
+ 	\begin{defn}
+ 		An \emph{equivalence} relation is
+ 	\end{defn}
 	
 \end{document}
