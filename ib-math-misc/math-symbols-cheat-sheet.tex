@@ -56,6 +56,7 @@
 	
 	\subsection{Common Sets}
 	\begin{itemize}
+		\item $\varnothing$: The empty set with no elements.
 		\item $\NN$: The set of natural numbers, e.g. $2$, $6969$, $42$.
 		\item $\mathbb{Z}$: The set of integers, e.g. $-2, 0, 9$.
 		\item $\mathbb{Q}$: The set of rational numbers, e.g. $2.34$, $\frac{6}{7}$.
@@ -82,5 +83,21 @@
 	\subsection{Set Operations}
 	
 	By operating on sets, new sets can be formed from existing sets.
+	
+	\begin{itemize}
+		\item $\overline{A}$: The complementary set of $A$. The definition of this is sensitive to the definition of the universal set in the current context.
+		\item $A \setminus B$: The difference of $A$ and $B$, i.e. all members of $A$ that are not contained in $B$.
+		\item $A \cap B$: The intersection of $A$ and $B$, i.e. the set whose elements are all elements contained in \emph{both} $A$ and $B$.
+		\item $A \cup B$: The union of $A$ and $B$, i.e. the set whose elements are all elements contained in \emph{either} $A$ or $B$.
+		\item $A \sqcup B$: The disjoint union of $A$ and $B$. This is similar to a union, except that each element in the resulting union has semantics indicating which source set (of $A$ and $B$) this element came from. One representation of this idea is treating $\bras{(a, A) \mid a \in A} \cup \bras{(b, B) \mid b \in B}$ as the disjoint union of $A$ and $B$.
+		\item $A \times B$: The cartesian product of $A$ and $B$. This is the set of tuples/pairs defined as $\bras{(a, b) \mid a \in A,\ b \in B}$.
+	\end{itemize}
+	
+	It is clear that the cardinality of some composed set can be inferred from its constituent sets. This is useful when proving theorems via the Howard-Curry isomorphism.
+	\begin{itemize}
+		\item $A \cap B = \varnothing \text{ ($A$ and $B$ are disjoint)} \iff |A \cap B| = |A| + |B|$
+		\item $|A \sqcup B| = |A| + |B|$
+		\item $|A \times B| = |A| * |B|$
+	\end{itemize}
 	
 \end{document}
