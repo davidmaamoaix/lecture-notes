@@ -1,0 +1,86 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{indentfirst}
+\usepackage{tikz-cd}
+\usepackage{mathtools}
+\usepackage[shortlabels]{enumitem}
+\usepackage{xcolor}
+\usepackage[margin=0.75in, top=1in, a4paper]{geometry}
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{ex}{Exercise}[section]
+\newtheorem{oex}[ex]{*Exercise}
+
+\newcommand{\mo}[1]{\lvert #1 \rvert}
+\newcommand{\mos}[1]{\lvert #1 \rvert^2}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\T}{\text{true}}
+\newcommand{\F}{\text{false}}
+\newcommand{\mov}[1]{\lvert \vec{#1} \rvert}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\p}{\partial}
+\newcommand{\iv}[1]{\langle #1 \rangle}
+\newcommand{\adj}{\text{adj}}
+\newcommand{\dom}{\text{dom}}
+\newcommand{\st}{\text{s.t. }}
+\newcommand{\ltc}[1]{(\colorbox{lightgray}{\textbackslash #1})}
+\newcommand{\bras}[1]{\lbrace #1 \rbrace}
+
+\definecolorset{gray/rgb/hsb/cmyk}{}{}%
+ {black,0/0,0,0/0,0,0/0,0,0,1;%
+  darkgray,.25/.25,.25,.25/0,0,.25/0,0,0,.75;%
+  gray,.5/.5,.5,.5/0,0,.5/0,0,0,.5;%
+  lightgray,.85/.85,.85,.85/0,0,.85/0,0,0,.15;%
+  white,1/1,1,1/0,0,1/0,0,0,0}
+
+\title{\vspace{-2.0cm}Math Symbols Cheatsheet}
+\author{Linxuan Ma}
+
+\begin{document}
+	\maketitle
+	
+	\section{Sets}
+	
+	A set is a collection of objects, which are referred to as the $members$ or $elements$ of the set.
+	
+	\begin{itemize}
+		\item $a \in A$: $a$ is an element of the set $A$.
+		\item $|A|$: The cardinality (i.e. size) of the set $A$, e.g. the set $\bras{1, 3, 5}$ has cardinality $3$.
+	\end{itemize}
+	
+	\subsection{Common Sets}
+	\begin{itemize}
+		\item $\NN$: The set of natural numbers, e.g. $2$, $6969$, $42$.
+		\item $\mathbb{Z}$: The set of integers, e.g. $-2, 0, 9$.
+		\item $\mathbb{Q}$: The set of rational numbers, e.g. $2.34$, $\frac{6}{7}$.
+		\item $\RR$: The set of real numbers, e.g. $12$, $\frac{3}{8}$, $-\sqrt{2}$.
+		\item $\RR_+$: The set of non-negative real numbers, e.g. $0$, $\pi$, $1$. This notation works for other number sets (e.g. $Z_+$ denotes non-negative integers).
+		\item $\RR_{++}$: The set of strictly positive real numbers (not including $0$).
+		\item $\CC$: The set of complex numbers, e.g. $2 + 3i$, $5i$, $12$.
+		\item $\RR^n$: The set of vectors of length (dimension) $n$.
+		\item $\RR^{m \times n}$: The set of matrices of size $(m, n)$.
+	\end{itemize}
+	
+	\subsection{Construction of Sets}
+	
+	An arbitrary set $S$ can be constructed in numerous ways:
+	\begin{itemize}
+		\item $S = \bras{a, b, c}$: Set $S$ has elements $a$, $b$ and $c$.
+		\item $S = \bras{x \mid x \in A}$: Set $S$ comprise of elements from set $A$.
+		\item $S = \bras{x \mid x \in A,\ C_1(x), \dots, C_n(x)}$: Set $S$ comprise of all elements from set $A$ that satisfies all assertion $C_1, \dots, C_n$ of the element, e.g. $\bras{x \mid x \in \NN,\ x > 5}$ is the set of all natural numbers that are larger than $5$.
+		\item $S = \bras{f(a, b) \mid a \in A,\ b \in B}$: Set $S$ contains the results of applying function $f$ to all combinations of elements from set $A$ and $B$.
+	\end{itemize}
+	
+	Apart from the first notation, the rest are referred to as \emph{set comprehensions}. They can be used in conjunction, i.e. a set comprehension can contain multiple assertion statements and multiple element definition statements.
+	
+	\subsection{Set Operations}
+	
+	By operating on sets, new sets can be formed from existing sets.
+	
+\end{document}
