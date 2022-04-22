@@ -40,7 +40,7 @@
   white,1/1,1,1/0,0,1/0,0,0,0}
 
 \title{\vspace{-2.0cm}Math Symbols Cheatsheet}
-\author{Linxuan Ma}
+\author{David Ma}
 
 \begin{document}
 	\maketitle
@@ -99,5 +99,33 @@
 		\item $|A \sqcup B| = |A| + |B|$
 		\item $|A \times B| = |A| * |B|$
 	\end{itemize}
+	
+	In addition, note that there are also compact forms for some of the above operations:
+	\begin{align*}
+		\bigcap^n_{i=1} a_i &= a_1 \cap a_2 \cap \dots \cap a_n\\
+		\bigcup^n_{i=1} a_i &= a_1 \cup a_2 \cup \dots \cup a_n
+	\end{align*}
+	
+	\subsection{Set Relations}
+	
+	The relationship between sets can also be described with symbols:
+	\begin{itemize}
+		\item $A \subseteq B$: $A$ is a subset of $B$, i.e. all members of $A$ are also members of $B$.
+		\item $A \subset B$: $A$ is a strict ($A \neq B$) subset of $B$.
+ 	\end{itemize}
+ 	
+ 	\section{Functions}
+ 	
+ 	The \emph{signature} of a function denotes what type of function it is, i.e. what are the parameters and return types of the function.
+ 	
+ 	To illustrate, the function signature of the addition function $+$ over the set of natural numbers can be written in the forms of either:
+ 	\begin{itemize}
+ 		\item $+ : \NN \to \NN \to \NN$
+ 		\item $+ : \NN \times \NN \to \NN$
+ 	\end{itemize}
+ 	
+ 	The above signatures state that "$+$ is a function that accepts two parameters from $\NN$ and returns a value of type $\NN$".
+ 	
+ 	Note that the two signatures listed above are equivalent up to isomorphism (over the currying operation). From this observation, it is evident that the arrow $\to$ in function signatures is right-associative.
 	
 \end{document}
