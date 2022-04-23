@@ -31,6 +31,7 @@
 \newcommand{\st}{\text{s.t. }}
 \newcommand{\ltc}[1]{(\colorbox{lightgray}{\textbackslash #1})}
 \newcommand{\bras}[1]{\lbrace #1 \rbrace}
+\newcommand{\id}[1]{\text{id}_{#1}}
 
 \definecolorset{gray/rgb/hsb/cmyk}{}{}%
  {black,0/0,0,0/0,0,0/0,0,0,1;%
@@ -39,7 +40,7 @@
   lightgray,.85/.85,.85,.85/0,0,.85/0,0,0,.15;%
   white,1/1,1,1/0,0,1/0,0,0,0}
 
-\title{\vspace{-2.0cm}Math Symbols Cheatsheet}
+\title{\vspace{-2.0cm}Mathematics Notation Cheatsheet}
 \author{David Ma}
 
 \begin{document}
@@ -128,9 +129,21 @@
  	
  	Note that the two signatures listed above are equivalent up to isomorphism (over the currying operation). From this observation, it is evident that the arrow $\to$ in function signatures is right-associative.
  	
-	In addition to the common function definition, e.g. $f(x, y) = x^2 + y^2$, a function can also be defined in-line with the mapping arrow $\mapsto$, e.g. $(x, y) \mapsto x^2 + y^2$.
-	
-	Given $f : A \to B$ and $g : B \to C$, the function composition $g \circ f : A \to C$ denotes the chaining of $g$ after $f$, i.e. $x \mapsto g(f(x))$.
+ 	Some additional notations of functions:
+ 	\begin{itemize}
+ 		\item $\id{A}: A \to A$ is the identity function that simply returns the given parameter.
+ 		\item In addition to the common function definition, e.g. $f(x, y) = x^2 + y^2$, a function can also be defined in-line with the mapping arrow $\mapsto$, e.g. $(x, y) \mapsto x^2 + y^2$.
+ 		\item Given $f : A \to B$ and $g : B \to C$, the function composition $g \circ f : A \to C$ denotes the chaining of $g$ after $f$, i.e. $x \mapsto g(f(x))$.
+ 	\end{itemize}
+ 	
+ 	\subsection{Function Descriptions}
+ 	
+ 	A function $f : A \to B$ can be described according to its behavior on how it maps elements from $A$ to $B$. Specifically, $f$ can be:
+ 	\begin{enumerate}
+ 		\item \textbf{Injective}: $f(x) \neq f(y)$ for all $x, y \in A$, $x \neq y$.
+ 		\item \textbf{Surjective}: For all $b \in B$, there exists an $a \in A$ such that $f(a) = b$.
+ 		\item \textbf{Bijective}: A bijective function is one that is both injective and surjective.
+ 	\end{enumerate}
 	
 	\section{Relations}
 	
@@ -151,7 +164,29 @@
  	For example, a preorder can be formed on the set of restaurants near YKPS based on their distance to the school: $a \preceq b$ if the distance to $a$ is less than or equal to that of $b$.
  	
  	\begin{defn}
- 		An \emph{equivalence} relation is
+ 		An \emph{equivalence} relation $a \cong b$ states that $a$ and $b$ are equal in some sense. A definition for equivalence on set $A$ must satisfy the following constraints:
+ 		\begin{enumerate}
+ 			\item \textbf{Reflexivity}: $a \cong a$ for all $a \in A$
+ 			\item \textbf{Symmetry}: $a \cong b \iff b \cong a$
+ 			\item \textbf{Transitivity}: $a \cong b \land b \cong c \implies a \cong c$
+ 		\end{enumerate}
  	\end{defn}
+ 	
+ 	For example, for a purchasing problem, the equivalence of purchasing strategies can be defined as having the same cost/price.
+ 	
+ 	\begin{defn}
+ 		An \emph{isomorphism} between structures (structures are more generalized than sets) $A$ and $B$ states that "having either $A$ or $B$ is as good as having the other". Formally, structures $A$ and $B$ are isomorphic if there exists a pair of functions $f : A \to B$ and $g : B \to A$ such that:
+ 		\begin{enumerate}
+ 			\item $g \circ f = \id{A}$
+ 			\item $f \circ g = \id{B}$
+ 		\end{enumerate}
+ 	\end{defn}
+ 	
+ 	For example, a bijection is an isomorphism in the category of sets.
+ 	
+ 	\section{Formal Logic}
+ 	\section{Number Theory}
+ 	\section{Descriptive Terminologies}
+ 	\section{Appendix: \LaTeX\ Notations}
 	
 \end{document}
