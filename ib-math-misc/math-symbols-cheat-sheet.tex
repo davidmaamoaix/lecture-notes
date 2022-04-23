@@ -79,7 +79,7 @@
 	\begin{itemize}
 		\item $S = \bras{a, b, c}$: Set $S$ has elements $a$, $b$ and $c$.
 		\item $S = \bras{x \mid x \in A}$: Set $S$ comprise of elements from set $A$.
-		\item $S = \bras{x \mid x \in A,\ C_1(x), \dots, C_n(x)}$: Set $S$ comprise of all elements from set $A$ that satisfies all assertion $C_1, \dots, C_n$ of the element, e.g. $\bras{x \mid x \in \NN,\ x > 5}$ is the set of all natural numbers that are larger than $5$.
+		\item $S = \bras{x \mid x \in A,\ C_1(x), \dots, C_n(x)}$: Set $S$ comprises of all elements from set $A$ that satisfy all assertions $C_1, \dots, C_n$ of the element, e.g. $\bras{x \mid x \in \NN,\ x > 5}$ is the set of all natural numbers that are larger than $5$.
 		\item $S = \bras{f(a, b) \mid a \in A,\ b \in B}$: Set $S$ contains the results of applying function $f$ to all combinations of elements from set $A$ and $B$.
 	\end{itemize}
 	
@@ -266,14 +266,14 @@
  	\begin{itemize}
  		\item $a \mid b$: $a$ is a factor of $b$, i.e. $b$ has remainder $0$ when divided by $a$.
  		\item $a \nmid b$: $a$ is not a factor of $b$, i.e. $a$ does not divide $b$.
+ 		\item $a \perp b$: $a$ and $b$ are coprimes, i.e. the greatest common factor of $a$ and $b$ is $1$
  		\item $a \bmod b$: The remainder of $a$ divided by $b$.
  		\item $a \equiv b \bmod n$: $a$ is congruent to $b$ modulo $n$, i.e. $n \mid (b - a)$.
  		\item $\mathbb{Z}/n\mathbb{Z}$: The cyclic group (see \nameref{sec:terms}) formed by numbers $\bras{0, 1, \dots, n - 1}$ under multiplication modulo $n$.
  		\item $\lfloor x \rfloor$: The floor of $x$, i.e. the largest integer less than or equal to $x$.
  		\item $\lceil x \rceil$: The ceiling of $x$, i.e. the smallest integer greater than or equal to $x$.
  		\item $\lfloor x \rceil$ (or $\lbrack x \rbrack$): The nearest integer to $x$.
- 		\item $a \perp b$: $a$ and $b$ are coprimes, i.e. the greatest common factor of $a$ and $b$ is $1$
-. 	\end{itemize}
+ 	\end{itemize}
  	
  	\section{Calculus}
  	
@@ -332,6 +332,8 @@
  	\section{Terminologies}
  	\label{sec:terms}
  	
+ 	TODO.
+ 	
  	\section{Appendix: \LaTeX\ Notations}
  	
  	This section aims to cover the typesetting of common symbols in \LaTeX.	 This includes all symbols shown in this document, as well as ones we've covered in class.
@@ -366,15 +368,62 @@
  		\item $\bigcap^n_{i=1} a_i$: \ltc{bigcap\^{}n\_\{i=1\} a\_i}
  		\item $\bigcup^n_{i=1} a_i$: \ltc{bigcup\^{}n\_\{i=1\} a\_i}
  		\item $a \neq b$: \ltcc{a \textbackslash neq b}
+ 		\item $a \cup \dots \cup b$: \ltcc{a \textbackslash cup \textbackslash dots \textbackslash cup b}
  	\end{itemize}	
  	\end{multicols}
 
 	\subsection{Functions}
-	
 	\begin{multicols}{2}
  	\begin{itemize}
 	 	\item $A \to A$: \ltcc{A \textbackslash to A}
+	 	\item $x \mapsto x^2$: \ltcc{x \textbackslash mapsto x\^{}2}
 	 	\item $\text{id}_A$: \ltc{text\{id\}\_A}
+	 	\item $g \circ f$: \ltcc{g \textbackslash circ f}
+ 	\end{itemize}	
+ 	\end{multicols}
+ 	
+ 	%\subsection{Relations}
+ 	\begin{multicols}{2}
+ 	\begin{itemize}
+	 	\item $a \preceq b$: \ltcc{a \textbackslash preceq b}
+	 	\item $a \cong b$: \ltcc{a \textbackslash cong b}
+ 	\end{itemize}	
+ 	\end{multicols}
+ 	
+ 	\subsection{Formal Logic}
+ 	\begin{multicols}{2}
+ 	\begin{itemize}
+	 	\item $\lnot A$: \ltc{lnot A}
+	 	\item $A \land B$: \ltcc{A \textbackslash land B}
+	 	\item $A \lor B$: \ltcc{A \textbackslash or B}
+	 	\item $A \implies B$: \ltcc{A \textbackslash implies B}
+	 	\item $A \iff B$: \ltcc{A \textbackslash iff B}
+	 	\item $\forall a \in A$: \ltc{forall a \textbackslash in A}
+	 	\item $\exists a \in A$: \ltc{exists a \textbackslash in A}
+ 	\end{itemize}	
+ 	\end{multicols}
+ 	
+ 	\subsection{Number Theory}
+ 	\begin{multicols}{2}
+ 	\begin{itemize}
+	 	\item $a \mid b$: \ltcc{a \textbackslash mid b}
+	 	\item $a \nmid b$: \ltcc{a \textbackslash nmid b}
+	 	\item $a \perp b$: \ltcc{a \textbackslash perp b}
+	 	\item $a \bmod b$: \ltcc{a \textbackslash bmod b}
+	 	\item $a \equiv b$: \ltcc{a \textbackslash equiv b}
+	 	\item $\lfloor x \rfloor$: \ltcc{\textbackslash lfloor x \textbackslash rfloor}
+	 	\item $\lceil x \rceil$: \ltcc{\textbackslash lceil x \textbackslash rceil}
+	 	\item $\lfloor x \rceil$: \ltcc{\textbackslash lfloor x \textbackslash rceil}
+ 	\end{itemize}	
+ 	\end{multicols}
+ 	
+ 	\subsection{Calculus}
+ 	\begin{multicols}{2}
+ 	\begin{itemize}
+	 	\item $\partial$: \ltc{partial}
+	 	\item $\nabla$: \ltc{nabla}
+	 	\item $D_xf(x, y)$: \ltcc{D\_x f(x, y)}
+	 	\item $\lim_{x \to 0}$: \ltc{lim\_\{x \textbackslash to 0\}}
  	\end{itemize}	
  	\end{multicols}
 	
