@@ -8,6 +8,7 @@
 \usepackage{mathtools}
 \usepackage[shortlabels]{enumitem}
 \usepackage{xcolor}
+\usepackage{hyperref}
 \usepackage[margin=0.75in, top=1in, a4paper]{geometry}
 
 \theoremstyle{definition}
@@ -214,11 +215,49 @@
  	Arrows are commonly used in logical deductions; however, note that different arrows have \textbf{completely different} meanings, and misusing arrows can cause confusions for the reader. For example, $\to$ and $\implies$ are completely different, and should never be used interchangeably.
  	
  	\begin{defn}
- 		Statement $A$ \emph{implies} $B$
+ 		Statement $A$ \emph{implies} statement $B$ means that if $A$ is true, then $B$ is true. Such a relation is denoted $A \implies B$.
   	\end{defn}
+  	
+  	For example:
+  	\begin{center}
+  		Thomas is at Oxford $\implies$ Thomas is not in China
+  	\end{center}
+  	
+  	\begin{defn}
+  		An \emph{if and only if} relation on statement $A$ and $B$ denotes that $A$ and $B$ should either both be true, or  both be false, as the state of either statement can guarantee the state of the other. Denoted as $A \iff B$, the "if and only if" relation can be relaxed into two relations:
+  		\begin{itemize}
+  			\item \textbf{Necessary}: $A$ is needed for $B$ to be true.
+  			\item \textbf{Sufficient}: Knowing that $A$ is true is enough for $B$ to be true.
+  		\end{itemize}
+  		If both requirements above are satisfied, then $A \iff B$.
+  	\end{defn}
+  	
+  	For example:
+  	\begin{center}
+  		S is the empty set $\iff$ $|S| = 0$
+  	\end{center}
+  	
+  	An alternative way of defining $A \iff B$ is:
+  	\begin{gather*}
+  		(A \implies B) \land (B \implies A)
+  	\end{gather*}
  	
  	\section{Number Theory}
- 	\section{Descriptive Terminologies}
+ 	
+ 	\begin{itemize}
+ 		\item $a \mid b$: $a$ is a factor of $b$, i.e. $b$ has remainder $0$ when divided by $a$.
+ 		\item $a \bmod b$: The remainder of $a$ divided by $b$.
+ 		\item $a \equiv b \bmod n$: $a$ is congruent to $b$ modulo $n$, i.e. $n \mid (b - a)$.
+ 		\item $\mathbb{Z}/n\mathbb{Z}$: The cyclic group (see \nameref{sec:terms}) formed by numbers $\bras{0, 1, \dots, n - 1}$ under multiplication modulo $n$.
+ 		\item $\lfloor x \rfloor$: The floor of $x$, i.e. the largest integer less than or equal to $x$.
+ 		\item $\lceil x \rceil$: The ceiling of $x$, i.e. the smallest integer greater than or equal to $x$.
+ 		\item $\lfloor x \rceil$ (or $\lbrack x \rbrack$): The nearest integer to $x$.
+ 		\item $a \perp b$: $a$ and $b$ are coprimes, i.e. the greatest common factor of $a$ and $b$ is $1$
+. 	\end{itemize}
+ 	
+ 	\section{Calculus}
+ 	\section{Terminologies}
+ 	\label{sec:terms}
  	\section{Appendix: \LaTeX\ Notations}
 	
 \end{document}
