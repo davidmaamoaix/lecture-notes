@@ -9,6 +9,7 @@
 \usepackage[shortlabels]{enumitem}
 \usepackage{xcolor}
 \usepackage{hyperref}
+\usepackage{multicol}
 \usepackage[margin=0.75in, top=1in, a4paper]{geometry}
 
 \theoremstyle{definition}
@@ -30,8 +31,10 @@
 \newcommand{\adj}{\text{adj}}
 \newcommand{\dom}{\text{dom}}
 \newcommand{\st}{\text{s.t. }}
-\newcommand{\ltc}[1]{(\colorbox{lightgray}{\textbackslash #1})}
+\newcommand{\ltc}[1]{\colorbox{lightgray}{\textbackslash #1}}
+\newcommand{\ltcc}[1]{\colorbox{lightgray}{#1}}
 \newcommand{\bras}[1]{\lbrace #1 \rbrace}
+\newcommand{\braks}[1]{\lbrack #1 \rbrack}
 \newcommand{\id}[1]{\text{id}_{#1}}
 
 \definecolorset{gray/rgb/hsb/cmyk}{}{}%
@@ -113,7 +116,9 @@
 	The relationship between sets can also be described with symbols:
 	\begin{itemize}
 		\item $A \subseteq B$: $A$ is a subset of $B$, i.e. all members of $A$ are also members of $B$.
+		\item $A \not\subseteq B$: $A$ is not a subset of $B$, i.e. there exists at least one member of $A$ that is not a member of $B$.
 		\item $A \subset B$: $A$ is a strict ($A \neq B$) subset of $B$.
+		\item $A \not\subset B$: $A$ is not a strict subset of $B$.
  	\end{itemize}
  	
  	\section{Functions}
@@ -241,11 +246,26 @@
   	\begin{gather*}
   		(A \implies B) \land (B \implies A)
   	\end{gather*}
+  	
+  	\subsection{Quantifiers}
+  	
+  	Quantifiers are symbols that define a variable with certain given semantics, i.e. information regarding the value of the variable. This is useful when formulating a predicate or statement.
+  	
+  	\begin{itemize}
+  		\item $\forall a \in A$ (Universal Quantifier): For all $a$ in set $A$, i.e. $a$ can be set to any value in $A$.
+  		\item $\exists a \in A$ (Existential Quantifier): There exists an $a$ i $A$.
+  	\end{itemize}
+  	
+  	For example, the statement "all integers have an additive inverse" can be rewritten with quantifiers (different writings may use different conventions for separators):
+  	\begin{gather*}
+  		\forall x \in \mathbb{Z},\ \exists y \in \mathbb{Z}.\ x + y = 0
+  	\end{gather*}
  	
  	\section{Number Theory}
  	
  	\begin{itemize}
  		\item $a \mid b$: $a$ is a factor of $b$, i.e. $b$ has remainder $0$ when divided by $a$.
+ 		\item $a \nmid b$: $a$ is not a factor of $b$, i.e. $a$ does not divide $b$.
  		\item $a \bmod b$: The remainder of $a$ divided by $b$.
  		\item $a \equiv b \bmod n$: $a$ is congruent to $b$ modulo $n$, i.e. $n \mid (b - a)$.
  		\item $\mathbb{Z}/n\mathbb{Z}$: The cyclic group (see \nameref{sec:terms}) formed by numbers $\bras{0, 1, \dots, n - 1}$ under multiplication modulo $n$.
@@ -256,8 +276,106 @@
 . 	\end{itemize}
  	
  	\section{Calculus}
+ 	
+ 	The symbols in calculus are standard to what we've covered in class. However, there are some alternative ways of writing derivatives.
+ 	
+ 	Consider function $f(x, y)$. Its partial derivative with respect to $x$ can be written as:
+ 	\begin{itemize}
+ 		\item $\frac{\partial f}{\partial x}(x, y)$
+ 		\item $f_x(x, y)$
+ 		\item $D_xf(x, y)$
+ 	\end{itemize}
+ 	
+ 	Similarly, the second order derivative of $f(x, y)$ with respect to $x$ and then $y$ can be written as:
+ 	\begin{itemize}
+ 		\item $\frac{\partial^2 f}{\partial x \partial y}(x, y)$
+ 		\item $f_{xy}(x, y)$
+ 		\item $D_{xy}f(x, y)$
+ 	\end{itemize}
+ 	
+ 	Note that according to Clairaut's theorem, $f_{xy} = f_{yx}$, so the order of the "with respect to" variables does not matter.
+ 	
+ 	\subsection{Vector Calculus}
+ 	
+ 	The gradient of a real-valued function $f(x_1, \dots, x_n)$, denoted $\nabla f$, is defined as the vector:
+ 	\begin{gather*}
+ 	\nabla f = 
+	\begin{bmatrix}
+ 		\frac{\partial f}{\partial x_1} \\
+ 		\vdots \\
+ 		\frac{\partial f}{\partial x_n}
+ 	\end{bmatrix}
+ 	\end{gather*}
+ 	
+ 	The gradient marks the steepest direction of descent for function $f$.
+ 	
+ 	Note that the operator $\nabla$ is often considered in its vector form, $\nabla = \braks{\frac{\partial}{\partial x_1}, \dots, \frac{\partial}{\partial x_n}}$. This makes it flexible, and can also be used on a vector-valued function:
+ 	\begin{itemize}
+ 		\item $\nabla \cdot f$: The divergence of $f$.
+ 		\item $\nabla \times f$: The curl of $f$.
+ 	\end{itemize}
+ 	
+ 	\begin{defn}
+ 		The \emph{Jacobian matrix} of a vector-valued function $f : \bras{x_1, \dots, x_n} \to \bras{f_1, \dots, f_m}$ is an $m \times n$ matrix containing each component of the result taken derivative to each components in the parameter:
+ 		\begin{gather*}
+ 		J_f = 
+ 		\begin{bmatrix}
+ 			\frac{\partial f_1}{\partial x_1} & \dots & \frac{\partial f_1}{\partial x_n} \\
+ 			\vdots & \ddots & \vdots \\
+ 			\frac{\partial f_m}{\partial x_1} & \dots & \frac{\partial f_m}{\partial x_n}
+ 		\end{bmatrix}
+ 		\end{gather*}
+ 	\end{defn}
+ 	
+ 	Note that there is no established convention for the orientation of the Jacobian matrix; some writings may feature a transposed version of the above definition.
+ 	
  	\section{Terminologies}
  	\label{sec:terms}
+ 	
  	\section{Appendix: \LaTeX\ Notations}
+ 	
+ 	This section aims to cover the typesetting of common symbols in \LaTeX.	 This includes all symbols shown in this document, as well as ones we've covered in class.
+ 	
+ 	\subsection{Sets Symbols}
+ 	
+ 	\begin{multicols}{2}
+ 	\begin{itemize}
+	 	\item $\varnothing$: \ltc{varnothing}
+ 		\item $\NN$: \ltc{mathbb\{N\}}
+ 		\item $\mathbb{Z}$: \ltc{mathbb\{Z\}}
+ 		\item $\QQ$: \ltc{mathbb\{Q\}}
+ 		\item $\RR$: \ltc{mathbb\{R\}}
+ 		\item $\RR_+$: \ltc{mathbb\{R\}\_+}
+ 		\item $\RR_{++}$: \ltc{mathbb\{R\}\_\{++\}}
+ 		\item $\CC$: \ltc{mathbb\{C\}}
+ 		\item $\RR^n$: \ltc{mathbb\{R\}\^{}n}
+ 		\item $\RR^{m \times n}$: \ltc{mathbb\{R\}\^{}\{m \textbackslash times n\}}
+ 		\item $\bras{x}$: \ltc{lbrack x \textbackslash rbrack}
+ 		\item $|A|$: \ltcc{\textbackslash lvert A \textbackslash rvert}
+ 		\item $\overline{A}$: \ltc{overline\{A\}}
+ 		\item $a \in A$: \ltcc{a \textbackslash in A}
+ 		\item $A \subset B$: \ltcc{A \textbackslash subset B}
+ 		\item $A \not\subset B$: \ltcc{A \textbackslash not\textbackslash subset B}
+ 		\item $A \subseteq B$: \ltcc{A \textbackslash subseteq B}
+ 		\item $A \not\subseteq B$: \ltcc{A \textbackslash not\textbackslash subseteq B}
+ 		\item $A \setminus B$: \ltcc{A \textbackslash setminus B}
+ 		\item $A \cap B$: \ltcc{A \textbackslash cap B}
+ 		\item $A \cup B$: \ltcc{A \textbackslash cup B}
+ 		\item $A \sqcup B$: \ltcc{A \textbackslash sqcup B}
+ 		\item $A \times B$: \ltcc{A \textbackslash times B}
+ 		\item $\bigcap^n_{i=1} a_i$: \ltc{bigcap\^{}n\_\{i=1\} a\_i}
+ 		\item $\bigcup^n_{i=1} a_i$: \ltc{bigcup\^{}n\_\{i=1\} a\_i}
+ 		\item $a \neq b$: \ltcc{a \textbackslash neq b}
+ 	\end{itemize}	
+ 	\end{multicols}
+
+	\subsection{Functions}
+	
+	\begin{multicols}{2}
+ 	\begin{itemize}
+	 	\item $A \to A$: \ltcc{A \textbackslash to A}
+	 	\item $\text{id}_A$: \ltc{text\{id\}\_A}
+ 	\end{itemize}	
+ 	\end{multicols}
 	
 \end{document}
