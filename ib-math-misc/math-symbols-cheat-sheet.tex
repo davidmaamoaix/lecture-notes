@@ -144,6 +144,16 @@
  		\item \textbf{Surjective}: For all $b \in B$, there exists an $a \in A$ such that $f(a) = b$.
  		\item \textbf{Bijective}: A bijective function is one that is both injective and surjective.
  	\end{enumerate}
+ 	
+ 	Sets can also be described in relation to a function. Consider the function $f : X \to Y$, then a set in relation to $f$ can be described as:
+ 	\begin{itemize}
+ 		\item \textbf{Domain}: The domain of $f$ is $X$.
+ 		\item \textbf{Codomain}: The codomain of $f$ is $Y$.
+ 		\item \textbf{Image} (range): The image $M$ of $f$ is the set of actual values $f(x)$ for all $x \in X$. If $f$ is surjective, then $M = Y$.
+ 		\item \textbf{Preimage}: The preimage of $P \subseteq Y$ over $f$ is the set of $x \in X$ such that $f(x) \in P$.
+ 	\end{itemize}
+ 	
+ 	For example, the notions of image and preimage are commonly used when describing linear mapping of vector spaces, as singular matrices (i.e. whose determinant is $0$) maps a vector space to a strict subset of itself, thereby distinguishing its image from its codomain.
 	
 	\section{Relations}
 	
@@ -172,6 +182,8 @@
  		\end{enumerate}
  	\end{defn}
  	
+ 	The symbol for equivalence can also be a tilde $\sim$.
+ 	
  	For example, for a purchasing problem, the equivalence of purchasing strategies can be defined as having the same cost/price.
  	
  	\begin{defn}
@@ -185,6 +197,26 @@
  	For example, a bijection is an isomorphism in the category of sets.
  	
  	\section{Formal Logic}
+ 	
+ 	Logic statements can shorten your descriptions with short notations. Such notations are ubiquitous in academic writings, so it is important to get them right!
+ 	
+ 	Loosely speaking, a statement is an observation or deduction, e.g. $x > 5$ states that $x$ is larger than $5$.
+ 	
+ 	Some common operations on statements:
+ 	\begin{itemize}
+ 		\item $\lnot A$: Negates the statement $A$.
+ 		\item $A \lor B$: Either $A$ or $B$, e.g. $x > 10 \lor x < 0$ means $x$ can be \emph{either} greater than $10$ or less than $0$.
+ 		\item $A \land B$: Both $A$ and $B$, e.g. $x \in X \land x > 5$ means $x$ must be \emph{both} in set $X$ and greater than $5$.
+ 	\end{itemize}
+ 	
+ 	\subsection{Logical Deduction Notations}
+ 	
+ 	Arrows are commonly used in logical deductions; however, note that different arrows have \textbf{completely different} meanings, and misusing arrows can cause confusions for the reader. For example, $\to$ and $\implies$ are completely different, and should never be used interchangeably.
+ 	
+ 	\begin{defn}
+ 		Statement $A$ \emph{implies} $B$
+  	\end{defn}
+ 	
  	\section{Number Theory}
  	\section{Descriptive Terminologies}
  	\section{Appendix: \LaTeX\ Notations}
